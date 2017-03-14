@@ -2,6 +2,12 @@ const isPublish = process.env.node_env === 'production'
 
 var plugins = []
 
+let themes = ['simple']
+
+let entry = {}
+
+themes.map(key=>entry[key]= `./client/theme/${key}.js`)
+
 if (isPublish) {
 	plugins.push(new webpack.optimize.UglifyJsPlugin({
         test: /(\.jsx|\.js)$/,
@@ -12,16 +18,14 @@ if (isPublish) {
 }
 
 module.exports = {
-	entry: {
-		index:'./client/index.ts'
-	},
+	entry,
 	output: {
 		path: './public/',
 		chunkFilename: 'chunk/[chunkhash:8].chunk.js',
 		filename: '[name].js'
 	},
 	resolve: {
-		extensions: ['.ts','']
+		extensions: ['.ts','','js']
 	},
 	module: {
 		loaders: [
