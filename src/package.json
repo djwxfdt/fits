@@ -7,7 +7,7 @@
   "scripts": {
     "dev:watch": "webpack --watch --progress --colors --display-error-details",
     "dist": "NODE_ENV=production webpack --progress --colors",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "pug": "^2.0.0-beta11",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
+    "vue": "^2.2.4",
     "winston": "^2.3.1"
   },
   "devDependencies": {
