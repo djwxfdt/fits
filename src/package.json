@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:watch": "webpack --watch --progress --colors --display-error-details",
-    "dist": "NODE_ENV=production webpack --progress --colors",
+    "dev:watch": "gulp",
+    "dist": "NODE_ENV=production gulp dist",
     "start": "node index.js"
   },
   "author": "",
@@ -24,7 +24,9 @@
     "eslint": "^3.17.1",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
+    "gulp-nodemon": "^2.2.1",
     "gulp-postcss": "^6.3.0",
-    "typescript-eslint-parser": "^2.0.0"
+    "typescript-eslint-parser": "^2.0.0",
+    "webpack": "^2.2.1"
   }
 }
