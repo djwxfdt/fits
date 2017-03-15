@@ -4,8 +4,13 @@ html
     head
         title #{_T('home')}
         
+        link(res='stylesheet' src="/3rd/bootstrap/dist/css/bootstrap.min.css")
+        
         block style
         
     body
         block body
+            
+    script(src="/3rd/jquery/dist/jquery.min.js")
+    script(src="/3rd/bootstrap/dist/js/bootstrap.min.js")
         

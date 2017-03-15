@@ -12,10 +12,10 @@ gulp.task('clean',cb=>{
 	cb()
 })
 
-gulp.task('copy',['clean'],()=>new Promise(r=>
-    gulp.src('*images/**/*.!(md)',{cwd:'./assets'})
-    .pipe(gulp.dest('./public')).on('end',r)
-))
+gulp.task('copy',['clean'],()=>{
+	gulp.src('*images/**/*.!(md)',{cwd:'./assets'}).pipe(gulp.dest('./public'))
+	gulp.src('*/dist/**/*',{cwd:'./bower_components'}).pipe(gulp.dest('./public/3rd'))
+})
 
 gulp.task('css',()=>
     gulp.src('*styles/**/*.css',{cwd:'./assets'})
