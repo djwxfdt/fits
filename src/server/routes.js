@@ -7,5 +7,9 @@ router.get('/',(req,res)=>{
 	res.render(`theme/${userInfo.theme || 'default'}`)
 })
 
+router.get('/admin/login',(req,res)=>{
+	res.render('login')
+})
+
 
 module.exports = router

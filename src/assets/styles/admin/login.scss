@@ -1,0 +1,17 @@
+@import "../common.scss";
+
+body{
+    background-image: url(/images/admin/login-bg-1.png);
+    background-size: cover;
+
+    #app{
+        padding-top: 7.5%;
+
+        .panel{
+            width: 380px;
+            height: 440px;
+            background-color: white;
+            margin: auto;
+        }
+    }
+}

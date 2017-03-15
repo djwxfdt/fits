@@ -48,11 +48,15 @@ let config = {
 		filename: '[name].js'
 	},
 	resolve: {
-		extensions: ['.ts','.js']
+		extensions: ['.ts','.js'],
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+		}
 	},
 	module: {
 		loaders: [
-             { test: /\.ts$/, loader: 'ts-loader' },
+            { test: /\.ts$/, loader: 'ts-loader' },
+			{ test: /\.pug$/, loader: 'pug-loader' }
 		]
 	},
 	plugins:plugins

@@ -19,7 +19,7 @@ gulp.task('copy',['clean'],()=>{
 })
 
 gulp.task('css',()=>
-    gulp.src('*styles/**/theme/*.scss',{cwd:'./assets'})
+    gulp.src('*styles/**/?(theme|admin)/*.scss',{cwd:'./assets'})
     .pipe(scss().on('error', scss.logError)).pipe(gulp.dest('./public'))
 )
 

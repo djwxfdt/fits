@@ -17,12 +17,15 @@
     "express": "^4.15.2",
     "i18n": "^0.8.3",
     "pug": "^2.0.0-beta11",
+    "pug-loader": "^2.3.0",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "vue": "^2.2.4",
+    "vue-class-component": "^5.0.0",
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "@types/node": "^7.0.8",
     "eslint": "^3.17.1",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
