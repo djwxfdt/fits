@@ -11,6 +11,10 @@ body{
         text-decoration: none!important;
     }
 
+    li{
+        list-style: none;
+    }
+
 }
 
 #app{
@@ -40,8 +44,33 @@ body{
             font-size: 12px;
             color: rgba(255,255,255,0.5);
         }
+        .navigation{
+            padding: 0;
+            .nav-menu{
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        border-bottom: 1px solid rgba(255,255,255,0.1);
+                        a{
+                            line-height: 40px;
+                            padding: 10px 25px;
+                            color: #fff;
+                            font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+                            font-size: 12px;
+                            text-transform: uppercase;
+                        }
+
+                        &:first-child{
+                            border-top: 1px solid rgba(255,255,255,0.1);
+                        }
+                    }
+                }
+            }
+        }
     }
     .primary{
         background-color:white;
+        min-height:800px; 
     }
 }

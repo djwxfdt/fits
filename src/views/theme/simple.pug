@@ -14,4 +14,11 @@ block body
                             h1.site-title
                                 a(href="/") #{user.siteTitle} 
                             h2.sub-title #{user.subTitle}
+                        nav.navigation
+                            .nav-menu
+                                ul
+                                    -for(let page of user.pages){
+                                        li 
+                                            a(href=page.href) #{page.title}
+                                    -}
                 .primary.col-lg-9

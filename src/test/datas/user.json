@@ -2,5 +2,12 @@
     "name":"菲兹",
     "theme":"simple",
     "siteTitle":"DO OR NOT?",
-    "subTitle":"全栈工程师的小站"
+    "subTitle":"全栈工程师的小站",
+    "pages":[{
+        "href":"/",
+        "title":"个人简介"
+    },{
+        "href":"/",
+        "title":"我们的时代"
+    }]
 }
