@@ -1,7 +1,8 @@
 body{
-    background-image: url(assets/img/default-background.jpg);
+    background-image: url(/images/theme/simple/background.jpg);
     background-position: left top;
     background-size: auto;
     background-repeat: repeat;
     background-attachment: scroll;
+
 }

@@ -17,7 +17,7 @@ gulp.task('copy',['clean'],()=>new Promise(r=>
     .pipe(gulp.dest('./public')).on('end',r)
 ))
 
-gulp.task('css',['clean'],()=>
+gulp.task('css',()=>
     gulp.src('*styles/**/*.css',{cwd:'./assets'})
     .pipe(postcss([])).pipe(gulp.dest('./public'))
 )
@@ -39,6 +39,7 @@ gulp.task('js',['clean'],(cb)=>{
 })
 
 gulp.task('watch',()=>{
+	gulp.watch(['./assets/styles/**/*.css'],['css'])
 	nodemon({script: './index.js',watch:['./server'], ext: 'js', env: { 'NODE_ENV': 'development' }})
 })
 

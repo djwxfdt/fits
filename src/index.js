@@ -14,7 +14,7 @@ i18n.configure({
 	directory: __dirname + '/locales',
 	defaultLocale: 'zh',
 	queryParameter: 'lang',
-	autoReload:process.env.NODE_ENV === 'production',
+	autoReload:process.env.NODE_ENV !== 'production',
 	api: {
 		'__': '_T'
 	}
