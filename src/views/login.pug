@@ -2,16 +2,13 @@ doctype html
 
 html
     head
-        title #{user.name} | #{_T('home')}
-        
+        title #{_T('login')}
         link(rel='stylesheet' href="/3rd/bootstrap/dist/css/bootstrap.min.css")
         link(href="/images/favicon.png" rel="SHORTCUT ICON")
 
-        block style
         
     body
-        block body
             
     script(src="/3rd/jquery/dist/jquery.min.js")
     script(src="/3rd/bootstrap/dist/js/bootstrap.min.js")
-        
+    script(src="/js/login.js")
