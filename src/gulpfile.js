@@ -1,9 +1,10 @@
 const gulp = require('gulp')
 const del = require('del')
-const postcss = require('gulp-postcss')
+const scss = require('gulp-sass')
 const webpack = require('webpack')
 const gutil = require('gulp-util')
 const nodemon = require('gulp-nodemon')
+
 
 var config = Object.create(require('./webpack.config.js'))
 
@@ -18,8 +19,8 @@ gulp.task('copy',['clean'],()=>{
 })
 
 gulp.task('css',()=>
-    gulp.src('*styles/**/*.css',{cwd:'./assets'})
-    .pipe(postcss([])).pipe(gulp.dest('./public'))
+    gulp.src('*styles/**/theme/*.scss',{cwd:'./assets'})
+    .pipe(scss().on('error', scss.logError)).pipe(gulp.dest('./public'))
 )
 
 let init = false
@@ -39,8 +40,8 @@ gulp.task('js',['clean'],(cb)=>{
 })
 
 gulp.task('watch',()=>{
-	gulp.watch(['./assets/styles/**/*.css'],['css'])
-	nodemon({script: './index.js',watch:['./server'], ext: 'js', env: { 'NODE_ENV': 'development' }})
+	gulp.watch(['./assets/styles/**/*.scss'],['css'])
+	nodemon({script: './index.js',watch:['./server','./test'], ext: 'js json', env: { 'NODE_ENV': 'development' }})
 })
 
 gulp.task('default',['copy','css','js','watch'])

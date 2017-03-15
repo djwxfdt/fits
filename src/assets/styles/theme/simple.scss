@@ -1,0 +1,47 @@
+@import "../common.scss";
+
+body{
+    background-image: url(/images/theme/simple/background.jpg);
+    background-position: left top;
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: scroll;
+
+    a{
+        text-decoration: none!important;
+    }
+
+}
+
+#app{
+    .row{
+        display:flex;
+    }
+    .secondary{
+        background-color: #0073A1;
+        .site-title{
+            font-family: "Amatic SC";
+            line-height: 50px;
+            margin: 0;
+            padding: 30px 0;
+            text-align: center;
+            a{
+                color: white;
+                font-family: "Amatic SC";
+
+            }
+        }
+        .sub-title{
+            text-align: center;
+            text-transform: uppercase;
+            margin: -15px 0 30px;
+            line-height: 20px;
+            font-family: "Roboto Condensed";
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+    }
+    .primary{
+        background-color:white;
+    }
+}
