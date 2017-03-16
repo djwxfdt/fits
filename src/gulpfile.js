@@ -15,7 +15,9 @@ gulp.task('clean',cb=>{
 
 gulp.task('copy',['clean'],()=>{
 	gulp.src('*images/**/*.!(md)',{cwd:'./assets'}).pipe(gulp.dest('./public'))
-	gulp.src('*/dist/**/*',{cwd:'./bower_components'}).pipe(gulp.dest('./public/3rd'))
+	;['*/dist/**/*','*font-awesome/css/*','*font-awesome/fonts/*'].map(item=>{
+		gulp.src(item,{cwd:'./bower_components'}).pipe(gulp.dest('./public/3rd'))
+	})
 })
 
 gulp.task('css',()=>
