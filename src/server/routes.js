@@ -1,15 +1,14 @@
 const router = require('express').Router()
 
-const userInfo = require('../test/datas/user.json')
+const routes = {
+	'/':require('./controller/home.js'),
+	'/admin/login':require('./controller/admin.js').Login
+}
 
-router.get('/',(req,res)=>{
-	res.locals.user = userInfo
-	res.render(`theme/${userInfo.theme || 'default'}`)
-})
 
-router.get('/admin/login',(req,res)=>{
-	res.render('login')
-})
+for(let [k,v] of Object.entries(routes)){
+	router.get(k,(req,res,next)=>v(req,res,next))
+}
 
 
 module.exports = router

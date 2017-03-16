@@ -8,7 +8,7 @@
     "watch": "gulp",
     "dist": "NODE_ENV=production gulp dist",
     "start": "node index.js",
-    "preinstall": "npm install && bower install"
+    "preinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^7.0.8",
+    "bower": "^1.8.0",
     "eslint": "^3.17.1",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
