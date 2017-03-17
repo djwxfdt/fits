@@ -1,0 +1,28 @@
+/*http://imququ.com*/
+
+extends ../home.pug
+
+block style
+    
+    link(rel="stylesheet" href="/styles/theme/simple.css")
+
+block body
+    #app
+        .container-fluid
+            .row
+                .left-bar
+                    .profile
+                        
+                    h1
+                    h3
+                    
+                    ul.links
+                        li #{_T("home")}
+                        -for(let page of user.pages){
+                            li 
+                                a(href=page.href) #{page.title}
+                        -}
+                            
+                        
+                
+                
