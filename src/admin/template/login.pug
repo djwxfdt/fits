@@ -1,4 +1,20 @@
 .panel
     .head
+        img(src="/images/FIZZ.png")
     .body
+        .form-group
+            .form-group
+                label(for="username") 用户名：
+                input(type="text" class="form-control" id="username")
+            .form-group
+                label(for="password") 密码：
+                input(type="password" class="form-control" id="password")
+            
+            .bottom
+                .checkbox
+                    label
+                        input(type="checkbox") 
+                        span 记住我的登录信息
+                .right
+                    input(type="button" class="btn btn-primary" value="登录")
     

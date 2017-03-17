@@ -12,6 +12,38 @@ body{
             height: 440px;
             background-color: white;
             margin: auto;
+            .head{
+                height: 130px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: url(/images/login-head.jpg);
+
+                img{
+                    width: 84px;
+                    height: 84px;
+                    mix-blend-mode:overlay;
+
+                }
+            }
+            .body{
+                padding: 30px;
+
+                label{
+                    color: #72777c;
+                }
+                .form-group{
+                    input{
+                        margin-bottom: 30px;
+                    }
+                }
+
+                .bottom{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
         }
     }
 }
