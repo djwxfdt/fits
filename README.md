@@ -8,4 +8,4 @@ Fitz intended to be a simple and easy-install blog for programmers.
 ![home](https://ooo.0o0.ooo/2017/03/17/58cbeaab047ec.png)
 
 
-![LOGIN](https://ooo.0o0.ooo/2017/03/18/58cc0c1867845.png)
+![LOGIN](https://ooo.0o0.ooo/2017/03/18/58cc0eb99c6da.png)
