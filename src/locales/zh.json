@@ -3,5 +3,10 @@
 	"login": "登录",
 	"categories": "分类目录",
 	"recent posts": "近期文章",
-	"recent comments": "近期评论"
+	"recent comments": "近期评论",
+	"post at": "发表在",
+	"year": "年",
+	"month": "月",
+	"day": "日",
+	"comments": "评论"
 }

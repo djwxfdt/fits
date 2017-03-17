@@ -44,9 +44,32 @@ block body
                             ul
                                 -for(let link of user.recentComments || []){
                                     li
-                                        span #{link.sUser}《
+                                        span #{link.sUser} #{_T("post at")}《
                                         a.article(href=link.href) #{link.title}
                                         span 》
                                 -}
                         
                 .primary.col-lg-9
+                    .main
+                        -for(let item of articles || []){
+                            article.article
+                                header
+                                    h2 #{item.title}
+                                    .info
+                                        .date
+                                            i(class="fa fa-calendar" aria-hidden="true")
+                                            - {
+                                            -    let date = new Date(item.time)
+                                            -    let year = date.getFullYear()
+                                            -    let month = date.getMonth()
+                                            -    let day = date.getDate()
+                                                time #{`${year + _T("year") + month + _T("month") + day + _T("day")}`}
+                                            - }
+                                        .comments
+                                            i(class="fa fa-comment-o" aria-hidden="true")
+                                            .num #{item.comments}#{_T("comments")}
+
+                                            
+                        -}
+                    
+                    

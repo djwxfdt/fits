@@ -115,5 +115,41 @@ body{
     .primary{
         background-color:white;
         min-height:800px;
+        .article{
+            padding: 60px 35px !important;
+            h2{
+                font-size: 44px;
+                font-family: "Roboto Slab";
+                font-weight: 300;
+            }
+            .info{
+                text-align: right;
+                color: #3BC4FA !important;
+                font-size: 16px !important;
+                font-family: Roboto Condensed;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                height: 20px;
+                .date{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .comments{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: 10px;
+                }
+                i{
+                    margin-right: 4px;
+                    margin-left: 4px;
+                }
+            }
+        }
     }
 }
