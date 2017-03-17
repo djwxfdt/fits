@@ -115,8 +115,15 @@ body{
     .primary{
         background-color:white;
         min-height:800px;
+        h2,h3,h4,h5{
+            font-family: Roboto Slab;
+        }
         .article{
             padding: 60px 35px !important;
+            border-bottom: 1px solid #EEE;
+            header{
+                border-bottom: 1px solid #F3F3F3;
+            }
             h2{
                 font-size: 44px;
                 font-family: "Roboto Slab";
@@ -132,6 +139,7 @@ body{
                 justify-content: flex-end;
                 align-items: center;
                 height: 20px;
+                margin-bottom: 5px;
                 .date{
                     display: flex;
                     flex-direction: row;

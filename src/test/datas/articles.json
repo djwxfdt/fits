@@ -4,6 +4,7 @@
     "title":"Fizz 第一篇文章",
     "poster":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490081545&di=18fe502a2a733fb83ad1962462e38612&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.mytxly.com%2Fzs%2Fd%2Ffile%2Fzszx%2F2015-03-05%2F9541c4d9274c8df8ab8d8eac773638f4.jpg",
     "description":"这是第一篇文章，文章描述默认不超过80个字，超过部分已省略号结束...",
+    "content":"<h2>这是标题</h2><p>这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，</p>",
     "time":1489732527048,
     "comments":1
 },{
@@ -13,5 +14,6 @@
     "poster":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490081545&di=18fe502a2a733fb83ad1962462e38612&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.mytxly.com%2Fzs%2Fd%2Ffile%2Fzszx%2F2015-03-05%2F9541c4d9274c8df8ab8d8eac773638f4.jpg",
     "description":"这是第二篇文章，文章描述默认不超过80个字，超过部分已省略号结束...",
     "time":1489732527048,
+    "content":"<h2>这是标题</h2><p>这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，这是文章内容，</p>",
     "comments":1
 }]
