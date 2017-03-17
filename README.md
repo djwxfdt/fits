@@ -1,5 +1,5 @@
 # Fitz Blog
-![1.png](https://ooo.0o0.ooo/2017/03/17/58cbf49a8c883.png)
+![1.png](https://ooo.0o0.ooo/2017/03/17/58cbf687d88cf.png)
 
 Fitz intended to be a simple and easy-install blog for programmers.
 
