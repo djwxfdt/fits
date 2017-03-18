@@ -7,7 +7,7 @@ module.exports = app =>{
             next()
         }
         else{
-            res.redirect('/admin/login')
+            res.redirect('/admin/login?path=home')
         }
     })
 }

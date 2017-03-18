@@ -43,6 +43,11 @@ body{
                     flex-direction: row;
                     justify-content: space-between;
                 }
+                .err-msg{
+                    display: flex;
+                    justify-content: center;
+                    color:red;
+                }
             }
         }
     }

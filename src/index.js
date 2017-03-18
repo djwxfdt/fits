@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const log = require('./server/log.js')
 const i18n = require('i18n')
+const bodyParser = require('body-parser')
 
 const setupRoutes = require('./server/routes.js')
 const setupSession =require('./server/session.js')
@@ -24,6 +25,8 @@ i18n.configure({
 })
 
 app.use(i18n.init)
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // order is important
 setupSession(app)
