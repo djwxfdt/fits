@@ -10,7 +10,7 @@ This blog site is developed with nodejs,so make sure you have nodejs installed a
 
 After that,run `npm install -g bower && npm install`.
 
-### Run In Development
+## Run In Development
 Run `npm run watch` and visit http://localhost:3000 in browser.
 
 
