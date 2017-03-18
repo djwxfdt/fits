@@ -3,6 +3,17 @@
 
 Fitz intended to be a simple and easy-install blog for programmers.
 
+## Installing Fitz
+clone master branch of this repository.
+
+This blog site is developed with nodejs,so make sure you have nodejs installed and the version of it should greater than 6.5.0.
+
+After that,run `npm install -g bower && npm install`.
+
+### Run In Development
+Run `npm run watch` and visit http://localhost:3000 in browser.
+
+
 ## Blog Preview
 
 ### HOME PAGE
