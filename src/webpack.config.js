@@ -14,6 +14,7 @@ themes.map(key=>entry[key]= `./client/theme/${key}.js`)
 Object.assign(entry,{
 	login:'./admin/login.ts',
 	admin:'./admin/index.ts',
+	install:'./admin/install.ts',
 
 })
 

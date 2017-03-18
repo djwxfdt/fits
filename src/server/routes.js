@@ -1,12 +1,14 @@
 const router = require('express').Router()
+let adminController = require('./controller/admin.js')
 
 const gets = {
 	'/':require('./controller/home.js'),
-	'/admin/login':require('./controller/admin.js').Login
+	'/admin/login':adminController.Login,
+	'/admin/install':adminController.install
 }
 
 const posts = {
-	'/admin/login':require('./controller/admin.js').postLogin
+	'/admin/login':adminController.postLogin
 }
 
 

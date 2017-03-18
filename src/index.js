@@ -1,5 +1,5 @@
 //development node version 7.5.0
-
+const path = require('path')
 const express = require('express')
 const app = express()
 const log = require('./server/log.js')
@@ -9,6 +9,8 @@ const bodyParser = require('body-parser')
 const setupRoutes = require('./server/routes.js')
 const setupSession =require('./server/session.js')
 const setupPolicy = require('./server/policy.js')
+
+global.appRoot = path.resolve(__dirname)
 
 app.use(express.static('public'))
 app.set('view engine', 'pug')
