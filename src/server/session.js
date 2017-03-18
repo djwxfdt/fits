@@ -2,7 +2,8 @@ const session = require('express-session')
 
 module.exports = app => {
     app.use(session({
-        secret:'fizz secret'
+        secret:'fizz secret',
+        resave:true
     }))
 
     app.use((req,res,next)=>{

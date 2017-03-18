@@ -1,0 +1,62 @@
+.panel
+    template(v-if="state==0")
+        .title 
+            h4 设置数据库
+        .options
+            .radio
+                label
+                    input(type="radio" v-model="db" value="0")
+                    span Sqlite(无需安装数据库)
+                label
+                    input(type="radio" v-model="db" value="1")
+                    span MongoDb 
+                    
+        hr
+        form.content.form-horizontal(@submit.prevent="onSubmit")
+            .form-group
+                label.control-label.col-sm-3(for="filename") 数据库名:
+                .col-sm-9
+                    input(type="text" class="form-control" v-model="filename" placeholder="fizz")
+            template(v-if="db == 0")
+                
+                
+            template(v-if="db == 1")
+                .form-group
+                    label.control-label.col-sm-3(for="dbname") 数据库用户名:
+                    .col-sm-9
+                        input(type="text" class="form-control" v-model="dbname" required )
+                .form-group
+                    label.control-label.col-sm-3(for="dbpass") 数据库密码:
+                    .col-sm-9
+                        input(type="text" class="form-control" v-model="dbpass" required )
+                .form-group
+                    label.control-label.col-sm-3(for="dbaddr") 数据库连接地址:
+                    .col-sm-9
+                        input(type="text" class="form-control" v-model="dbaddr" placeholder="localhost:27017")
+            .alert.alert-danger(v-if="errMsg.length > 0" role="alert") {{errMsg}}
+            .bottom
+                button.btn.btn-primary(type="submit" v-bind:class="{disabled:watting}") {{watting?"检测中":"下一步"}}
+    template(v-if="state==1")
+        .title 
+            h4 网站设置
+        hr
+        form.content.form-horizontal(@submit.prevent="onOk")
+            .form-group
+                label.control-label.col-sm-3(for="filename") 网站名称:
+                .col-sm-9
+                    input(type="text" class="form-control" v-model="sitename" required)
+            .form-group
+                label.control-label.col-sm-3(for="filename") 管理员账号:
+                .col-sm-9
+                    input(type="text" class="form-control" v-model="account" required)
+            .form-group
+                label.control-label.col-sm-3(for="filename") 管理员密码:
+                .col-sm-9
+                    input(type="password" class="form-control" v-model="password" required)
+            .form-group
+                label.control-label.col-sm-3(for="filename") 管理员邮箱:
+                .col-sm-9
+                    input(type="email" class="form-control" v-model="email" required)
+            .bottom
+                button.btn.btn-primary(type="submit" v-bind:class="{disabled:watting}") {{watting?"设置中":"完成"}}
+            template(v-if="db == 0")

@@ -8,13 +8,15 @@ let themes = ['simple']
 
 let entry = {}
 
-themes.map(key=>entry[key]= `./client/theme/${key}.js`)
+let dir = './assets/scripts'
+
+themes.map(key=>entry[key]= `${dir}/client/theme/${key}.js`)
 
 
 Object.assign(entry,{
-	login:'./admin/login.ts',
-	admin:'./admin/index.ts',
-	install:'./admin/install.ts',
+	login:`${dir}/admin/login.ts`,
+	admin:`${dir}/admin/index.ts`,
+	install:`${dir}/admin/install.ts`,
 
 })
 
