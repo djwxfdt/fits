@@ -11,4 +11,6 @@ for(let [k,v] of Object.entries(routes)){
 }
 
 
-module.exports = router
+module.exports = app => {
+	app.use(router)
+}

@@ -1,10 +1,13 @@
 //development node version 7.5.0
-var routers = require('./server/routes.js')
 
 const express = require('express')
 const app = express()
 const log = require('./server/log.js')
 const i18n = require('i18n')
+
+const setupRoutes = require('./server/routes.js')
+const setupSession =require('./server/session.js')
+const setupPolicy = require('./server/policy.js')
 
 app.use(express.static('public'))
 app.set('view engine', 'pug')
@@ -14,14 +17,18 @@ i18n.configure({
 	directory: __dirname + '/locales',
 	defaultLocale: 'zh',
 	queryParameter: 'lang',
-	autoReload:process.env.NODE_ENV !== 'production',
+	autoReload:app.get('env') !== 'production',
 	api: {
 		'__': '_T'
 	}
 })
 
 app.use(i18n.init)
-app.use('/',routers)
+
+// order is important
+setupSession(app)
+setupPolicy(app)
+setupRoutes(app)
 
 var server = app.listen(3000, function () {
 	var host = server.address().address
