@@ -13,6 +13,7 @@ After that,run `npm install -g bower && npm install`.
 ## Run In Development
 Run `npm run watch` and visit http://localhost:3000 in browser.
 
+Development username and password: fizz 11
 
 ## Blog Preview
 
