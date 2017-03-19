@@ -17,7 +17,6 @@ Object.assign(entry,{
 	login:`${dir}/admin/login.ts`,
 	admin:`${dir}/admin/index.ts`,
 	install:`${dir}/admin/install.ts`,
-
 })
 
 

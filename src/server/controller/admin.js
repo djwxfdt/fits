@@ -22,5 +22,5 @@ module.exports.postlogin = (req,res)=>{
 }
 
 module.exports.home = (req,res)=>{
-    res.send("ok")
+    res.render('admin/home')
 }
