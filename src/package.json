@@ -24,6 +24,7 @@
     "typescript": "^2.2.1",
     "vue": "^2.2.4",
     "vue-class-component": "^5.0.0",
+    "vue-router": "^2.3.0",
     "winston": "^2.3.1"
   },
   "devDependencies": {

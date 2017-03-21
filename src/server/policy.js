@@ -21,7 +21,7 @@ module.exports = app =>{
     })
 
     app.use('/',(req,res,next)=>{
-        if(!global.installed && req.method == 'GET'){
+        if(!global.installed && req.method == 'GET' && app.get('env') === 'production'){
             res.redirect('/install')
         }
         else{
