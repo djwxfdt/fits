@@ -2,7 +2,7 @@ import Vue,{ ComponentOptions } from 'vue'
 import Component from 'vue-class-component'
 
 @Component({
-    template: require('./template/foo.pug')(),
+    template: require('./template/welcome.pug')(),
 })
-export class Foo extends Vue {
+export class Welcome extends Vue {
 }
