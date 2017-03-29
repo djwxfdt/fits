@@ -18,6 +18,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.1",
     "i18n": "^0.8.3",
+    "lodash": "^4.17.4",
     "pug": "^2.0.0-beta11",
     "pug-loader": "^2.3.0",
     "ts-loader": "^2.0.1",

@@ -1,0 +1,90 @@
+.secondary{
+    background-color: #0073A1;
+    .site-title{
+        font-family: "Amatic SC";
+        line-height: 50px;
+        margin: 0;
+        padding: 30px 0;
+        text-align: center;
+        a{
+            color: white;
+            font-family: "Amatic SC";
+
+        }
+    }
+    .sub-title{
+        text-align: center;
+        text-transform: uppercase;
+        margin: -15px 0 30px;
+        line-height: 20px;
+        font-size: 12px;
+        color: rgba(255,255,255,0.5);
+        font-weight: 300;
+    }
+    .navigation{
+        padding: 0;
+        .nav-menu{
+            ul{
+                margin: 0;
+                padding: 0;
+                li{
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                    a{
+                        line-height: 40px;
+                        padding: 10px 25px;
+                        color: #fff;
+                        font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                    }
+
+                    &:first-child{
+                        border-top: 1px solid rgba(255,255,255,0.1);
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar{
+        .widget{
+            padding: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: rgba(255,255,255,0.3);
+
+            &:last-child{
+                border: none;
+            }
+
+            .widget-title{
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.3);
+                font-size: 12px;
+                line-height: 20px;
+                margin: 0 0 10px;
+                font-weight: 300;
+                font-family: "Roboto Condensed";
+
+            }
+            ul{
+                margin: 0 0 0 15px;
+                padding: 0;
+                li{
+                    font-size: 14px;
+                    list-style:disc;
+                    line-height: 22px;
+                    font-weight: 300;
+                    font-family: "Roboto";
+                    a{
+                        color: #fff;
+                        &:hover{
+                            color: #2E8BC3 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

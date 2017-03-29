@@ -1,0 +1,18 @@
+extends ../detail.pug
+
+block style
+    
+    link(rel="stylesheet" href="/styles/theme/simple-detail.css")
+
+block body
+    #app
+        .container
+            .row
+                .secondary.col-lg-3
+                    include ./left.pug
+                        
+                .primary.col-lg-9
+                    .main
+                    
+                    .comments
+                    

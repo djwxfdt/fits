@@ -1,0 +1,39 @@
+extends ../home.pug
+
+block style
+    
+    link(rel="stylesheet" href="/styles/theme/simple.css")
+
+block body
+    #app
+        .container
+            .row
+                .secondary.col-lg-3
+                    include ./left.pug
+                        
+                .primary.col-lg-9
+                    .main
+                        -for(let item of articles || []){
+                            article.article
+                                header
+                                    a(href=`/details/${item.id}`)
+                                        h2 #{item.title}
+                                    .info
+                                        .date
+                                            i(class="fa fa-calendar" aria-hidden="true")
+                                            - {
+                                            -    let date = new Date(item.time)
+                                            -    let year = date.getFullYear()
+                                            -    let month = date.getMonth()
+                                            -    let day = date.getDate()
+                                                time #{`${year + _T("year") + month + _T("month") + day + _T("day")}`}
+                                            - }
+                                        .comments
+                                            i(class="fa fa-comment-o" aria-hidden="true")
+                                            .num #{item.comments}#{_T("comments")}
+
+                                section.content!=item.content
+                                    
+                        -}
+                    
+                    
