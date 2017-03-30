@@ -3,6 +3,9 @@
 
 Fitz intended to be a simple and easy-install blog for programmers.
 
+## Demo Site
+http://blog.dornt.com
+
 ## Installing Fitz
 clone master branch of this repository.
 
