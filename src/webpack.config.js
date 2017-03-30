@@ -2,6 +2,8 @@ const webpack = require('webpack')
 
 const isPublish = process.env.NODE_ENV === 'production'
 
+const path = require('path')
+
 var plugins = []
 
 let themes = ['simple']
@@ -40,7 +42,7 @@ plugins.push(new webpack.DefinePlugin({"process.env.NODE_ENV": JSON.stringify(pr
 let config = {
 	entry,
 	output: {
-		path: './public/js',
+		path: path.resolve('./public/js'),
 		chunkFilename: 'chunk/[chunkhash:8].chunk.js',
 		filename: '[name].js'
 	},
