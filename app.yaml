@@ -1,5 +1,5 @@
 apps:
-  - script : ./src/app.js
+  - script : ./src/index.js
     name   : 'blog'
     env    :
       NODE_ENV: development
