@@ -12,6 +12,7 @@ const setupPolicy = require('./server/policy.js')
 
 global.appRoot = path.resolve(__dirname)
 
+app.set('views', path.join(__dirname, 'views'))
 app.use(express.static('public'))
 app.set('view engine', 'pug')
 
