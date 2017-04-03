@@ -89,6 +89,17 @@
             height: 958px;
             flex-grow: 0;
             overflow: auto;
+            border: none;
+            background: transparent;
+            resize:none;
+        }
+
+        .finished{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

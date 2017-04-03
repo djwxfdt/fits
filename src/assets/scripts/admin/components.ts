@@ -12,4 +12,11 @@ export class Welcome extends Vue {
     template: require('./template/edit.pug')(),
 })
 export class Edit extends Vue {
+    article:string = ""
+    finished:boolean = false
+
+    send():void{
+        console.log(this.article)
+        this.finished = true
+    }
 }
