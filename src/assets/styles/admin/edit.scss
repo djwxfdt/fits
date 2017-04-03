@@ -1,0 +1,94 @@
+.contents{
+    h3,h2,h4{
+        margin: 0;
+    }
+    .edit-view{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        border-radius: 6px;
+        overflow: hidden;
+        .head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            background: #dedede;
+            padding: 0 20px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            flex-shrink: 0;
+            .title{
+                width: 300px;
+                height: 100%;
+                outline: none;
+                display: flex;
+                align-items: center;
+                line-height: 40px;
+                word-wrap: break-word;
+                overflow: hidden;
+                white-space:nowrap;
+            }
+            .right-tools{
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                .icon{
+                    font-size: 16px;
+                }
+                .save{
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    &:hover{
+                        background: #555;
+                        color: white;
+                    }
+                }
+                .full-screen{
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+
+                    &:hover{
+                        background: #555;
+                        color: white;
+                    }
+                }
+                .send{
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    height: 100%;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    .icon{
+                        margin-right: 4px;
+                    }
+                    &:hover{
+                        background: #555;
+                        color: white;
+                    }
+                }
+            }
+
+        }
+        .editor{
+            margin: 10px 20px 20px 20px ;
+            outline: none;
+            font-size: 16px;
+            font-weight: 400;
+            height: 958px;
+            flex-grow: 0;
+            overflow: auto;
+        }
+    }
+}

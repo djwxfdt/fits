@@ -21,6 +21,7 @@
     "lodash": "^4.17.4",
     "pug": "^2.0.0-beta11",
     "pug-loader": "^2.3.0",
+    "showdown": "^1.6.4",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "vue": "^2.2.4",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@types/node": "^7.0.8",
+    "@types/showdown": "^1.4.32",
     "bower": "^1.8.0",
     "eslint": "^3.17.1",
     "gulp": "^3.9.1",

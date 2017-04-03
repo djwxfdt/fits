@@ -6,3 +6,10 @@ import Component from 'vue-class-component'
 })
 export class Welcome extends Vue {
 }
+
+
+@Component({
+    template: require('./template/edit.pug')(),
+})
+export class Edit extends Vue {
+}

@@ -3,12 +3,12 @@ import Component from 'vue-class-component'
 import axios from "axios"
 const code = require('../../../utils/code.js')
 import VueRouter from 'vue-router'
-import {Welcome} from './components'
+import {Welcome,Edit} from './components'
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-   routes:[{ path: '/', component: Welcome }]
+   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit }]
 })
 
 @Component({
