@@ -3,11 +3,13 @@
         .head
             h4.title.center(contenteditable="true") 未命名标题
             .right-tools
-                .save
-                    .icon.fa.fa-floppy-o(aria-hidden="true")
-                .full-screen
+                .preview(@click="preview" title="预览")
+                    .icon.fa.fa-film(aria-hidden="true" )
+                .save(title="保存")
+                    .icon.fa.fa-floppy-o(aria-hidden="true" )
+                .full-screen(title="全屏")
                     .icon.fa.fa-expand(aria-hidden="true")
-                .send(@click="send")
+                .send(@click="send" title="发布")
                     .icon.fa.fa-share(aria-hidden="true")
                     div 发布文章
                 
