@@ -35,7 +35,7 @@ export class Edit extends Vue {
             if(res.data.code){
                 if(res.data.code == 1){
                     this.id = res.data.id
-                    window.open("/article/preview?id=" + this.id)
+                    // window.open("/article/preview?id=" + this.id)
                 }
             }
         })
