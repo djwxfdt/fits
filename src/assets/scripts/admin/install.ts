@@ -24,15 +24,13 @@ class App extends Vue {
     onSubmit(e):void{
         if(this.db == 0){
             this.state = 1
+            this.filename = this.filename || "fizz"
+
         }
         else{
             this.watting = true
+            this.dbaddr = this.dbaddr || "localhost:27017"
         }
-        this.filename = this.filename || "fizz"
-        this.filename = this.dbname || "fizz"
-        this.dbpass = this.dbpass || "fizz-pass"
-        this.dbaddr = this.dbaddr || "localhost:27017"
-
 
         axios.post('/install/checkDB',{
             type:this.db,

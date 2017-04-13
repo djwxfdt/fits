@@ -35,6 +35,10 @@ export class Edit extends Vue {
 
     }
 
+    openPreview():void{
+        window.open(this.previewUrl)
+    }
+
     preview():void{
         this.postDraft().then(res=>{
             if(res.data.code){
