@@ -5,4 +5,11 @@
     .row{
         display:flex;
     }
+    .primary{
+        background-color:white;
+        min-height:800px;
+        h2,h3,h4,h5{
+            font-family: Roboto Slab;
+        }
+    }
 }

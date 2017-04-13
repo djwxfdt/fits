@@ -17,6 +17,11 @@ export class Edit extends Vue {
     article:string = ""
     finished:boolean = false
     id:string
+    previewUrl:string = ""
+
+    $refs: {
+        openBtn: any
+     }
 
     send():void{
         this.finished = true
@@ -35,7 +40,8 @@ export class Edit extends Vue {
             if(res.data.code){
                 if(res.data.code == 1){
                     this.id = res.data.id
-                    // window.open("/article/preview?id=" + this.id)
+                    this.previewUrl = "/article/preview?id=" + this.id
+                     this.$refs.openBtn.click();
                 }
             }
         })

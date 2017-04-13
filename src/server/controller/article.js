@@ -14,7 +14,7 @@ module.exports.postdraft = (req,res)=>{
 
 
 module.exports.preview = (req,res)=>{
-    console.error(req.params)
     let converter = new showdown.Converter()
+    res.locals.user = userInfo
     res.render(`theme/${userInfo.theme || 'default'}/preview`,{article:converter.makeHtml(article)})
 }
