@@ -1,11 +1,13 @@
 const auth = require('../test/datas/auth.json')
-const fs = require('fs')
-const path = require('path')
+const user = require('./service/user.js')
 
 module.exports = app =>{
 
     global.installed = false
-    fs.exists(path.join(global.appRoot,'data','install.json'),exists=>global.installed = exists)
+    
+    if(user.installed()){
+        global.installed = true
+    }
 
     app.use('/install',(req,res,next)=>{
         if(req.method != 'GET'){

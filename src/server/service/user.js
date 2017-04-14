@@ -10,6 +10,10 @@ class User{
         this.email = null
     }
 
+    installed(){
+        return this.db.get('installed').value()
+    }
+
     save(type,data){
         this.db.set(type,data).write()
     }
