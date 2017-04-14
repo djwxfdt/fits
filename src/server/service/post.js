@@ -1,6 +1,6 @@
 const db = require('./db.js')
 const Shemas = require('../model/mongo/shemas.js')
-
+const log = require('../log.js')
 
 class Post{
     static save(data){
@@ -19,15 +19,15 @@ class Post{
         if(db.getType() == 'mongodb'){
             let conn = db.createConnection()
             let BlogPost = conn.model('post',Shemas.BlogPost)
-            
+
             return new Promise((resolve)=>{
                 try{
-                    BlogPost.find({},(err,docs)=>{
+                    BlogPost.find({},null,{sort: '-date'},(err,docs)=>{
                         resolve(docs)
                     })
                 }
                 catch(err){
-                    console.error(err)
+                    log.error(err)
                     resolve([])
                 }
 
