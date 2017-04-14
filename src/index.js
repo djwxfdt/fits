@@ -6,11 +6,13 @@ const log = require('./server/log.js')
 const i18n = require('i18n')
 const bodyParser = require('body-parser')
 
+global.appRoot = path.resolve(__dirname)
+
 const setupRoutes = require('./server/routes.js')
 const setupSession =require('./server/session.js')
 const setupPolicy = require('./server/policy.js')
 
-global.appRoot = path.resolve(__dirname)
+
 
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(__dirname + '/public'))
