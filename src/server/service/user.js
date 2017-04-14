@@ -8,8 +8,6 @@ class User{
         this.db = lowdb(path.join(global.appRoot,'data','install.json'))
         this.account = null
         this.email = null
-        this.sitename = null
-
     }
 
     save(type,data){
@@ -20,11 +18,26 @@ class User{
         return this.db.get('user.nickname').value() || 'admin'
     }
 
+    getSiteName(){
+        return this.db.get('user.sitename').value()
+    }
+
     verify(account,password){
         if(this.db.get('user.account').value() ==account && this.db.get('user.password').value() == encryptPassword(password)){
             return true
         }
         return false
+    }
+
+    getInfo(){
+        return {
+            nickname:this.getName(),
+            sitename:this.getSiteName()
+        }
+    }
+
+    getDb(){
+        return this.db.get('db').value()
     }
 
 }

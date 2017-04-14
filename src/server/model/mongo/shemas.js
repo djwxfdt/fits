@@ -1,15 +1,20 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-export const BlogPost = new Schema({
-    author    : String,
+const BlogPost = new Schema({
     title     : String,
     body      : String,
     date      : Date,
     comments : [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 })
 
-export const Comment = new Schema({
+const Comment = new Schema({
     author : String,
     body:String
 })
+
+
+module.exports = {
+    BlogPost,
+    Comment
+}

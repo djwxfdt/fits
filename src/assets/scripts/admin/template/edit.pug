@@ -1,7 +1,7 @@
 .edit-view
     template(v-if="finished==false")
         .head
-            h4.title.center(contenteditable="true") 未命名标题
+            input.title.center(v-model="title")
             .right-tools
                 .preview(@click="preview" title="预览")
                     .icon.fa.fa-film(aria-hidden="true" )

@@ -22,7 +22,7 @@ block body
                                         .date
                                             i(class="fa fa-calendar" aria-hidden="true")
                                             - {
-                                            -    let date = new Date(item.time)
+                                            -    let date = new Date(item.date)
                                             -    let year = date.getFullYear()
                                             -    let month = date.getMonth()
                                             -    let day = date.getDate()
@@ -32,7 +32,7 @@ block body
                                             i(class="fa fa-comment-o" aria-hidden="true")
                                             .num #{item.comments}#{_T("comments")}
 
-                                section.content!=item.content
+                                section.content!=item.body
                                     
                         -}
                     

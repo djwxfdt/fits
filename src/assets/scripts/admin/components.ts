@@ -1,7 +1,7 @@
 import Vue,{ ComponentOptions } from 'vue'
 import Component from 'vue-class-component'
 import axios from "axios"
-
+const {translateError,CODE} = require('../../../utils/code.js')
 
 @Component({
     template: require('./template/welcome.pug')(),
@@ -18,13 +18,18 @@ export class Edit extends Vue {
     finished:boolean = false
     id:string
     previewUrl:string = ""
+    title:string = '未命名标题'
 
     $refs: {
         openBtn: any
      }
 
     send():void{
-        this.finished = true
+        axios.post('/article/save',{article:this.article,id:this.id,title:this.article}).then(res=>{
+            if(res.data.code && res.data.code == CODE.OK){
+                this.finished = true
+            }
+        });
     }
 
     postDraft():any{
