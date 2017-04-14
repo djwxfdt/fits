@@ -25,7 +25,7 @@ export class Edit extends Vue {
      }
 
     send():void{
-        axios.post('/article/save',{article:this.article,id:this.id,title:this.article}).then(res=>{
+        axios.post('/article/save',{article:this.article,id:this.id,title:this.title}).then(res=>{
             if(res.data.code && res.data.code == CODE.OK){
                 this.finished = true
             }
