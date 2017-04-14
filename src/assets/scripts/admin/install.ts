@@ -1,25 +1,34 @@
 import Vue,{ ComponentOptions } from 'vue'
 import Component from 'vue-class-component'
 import axios from "axios"
-const code = require('../../../utils/code.js')
+const {translateError,CODE} = require('../../../utils/code.js')
+
+interface DB {
+    [key: number]: string;
+}
 
 @Component({
     template: require('./template/install.pug')()
 })
 class App extends Vue {
-    db:Number = 0
+    db:number = 0
     filename:string = ''
     dbname:string = ''
     dbpass:string = ''
     dbaddr:string = ''
-    state:Number = 0
-    watting:Boolean = false
+    state:number = 0
+    watting:boolean = false
     errMsg:string = ""
 
     sitename:string = ''
     account:string = ''
     password:string = ''
     email:string = ''
+
+    type:DB = {
+        0:'sqlite',
+        1:'mongodb'
+    }
 
     onSubmit(e):void{
         if(this.db == 0){
@@ -30,21 +39,24 @@ class App extends Vue {
         else{
             this.watting = true
             this.dbaddr = this.dbaddr || "localhost:27017"
+            this.dbname = this.dbname || 'fizz'
         }
 
         axios.post('/install/checkDB',{
-            type:this.db,
+            type:this.type[this.db],
             filename:this.filename,
             name:this.dbname,
             pass:this.dbpass,
             addr:this.dbaddr
         }).then(res=>{
             if(res.data.code){
-                if(res.data.code == 1){
+                if(res.data.code == CODE.OK){
                     this.state = 1
                 }
                 else{
-                    this.errMsg = code(res.data.code)
+                    this.errMsg = translateError(res.data)
+                    console.error(this.errMsg)
+                    
                 }
             }
             else{
@@ -74,7 +86,7 @@ class App extends Vue {
                     window.location.href = "/admin/home"
                 }
                 else{
-                    this.errMsg = code(res.data.code)
+                    this.errMsg = translateError(res.data)
                 }
             }
             else{
