@@ -3,6 +3,8 @@ import Component from 'vue-class-component'
 import axios from "axios"
 const {translateError,CODE} = require('../../../utils/code.js')
 
+declare var window:any
+
 interface DB {
     [key: number]: string;
 }
@@ -24,6 +26,8 @@ class App extends Vue {
     account:string = ''
     password:string = ''
     email:string = ''
+
+    installed:boolean = window.installed
 
     type:DB = {
         0:'sqlite',
@@ -56,7 +60,7 @@ class App extends Vue {
                 else{
                     this.errMsg = translateError(res.data)
                     console.error(this.errMsg)
-                    
+
                 }
             }
             else{
@@ -71,7 +75,7 @@ class App extends Vue {
 
     onOk(e):void{
          axios.post('/install/save',{
-            type:this.db,
+            type:this.type[this.db],
             filename:this.filename,
             name:this.dbname,
             pass:this.dbpass,
@@ -82,7 +86,7 @@ class App extends Vue {
             email:this.email
         }).then(res=>{
             if(res.data.code){
-                if(res.data.code == 1){
+                if(res.data.code == CODE.OK){
                     window.location.href = "/admin/home"
                 }
                 else{

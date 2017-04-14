@@ -5,8 +5,7 @@ const path = require('path')
 module.exports = app =>{
 
     global.installed = false
-    fs.exists(path.join(global.appRoot,'install.lock'),exists=>global.installed = exists)
-    // global.installed = true
+    fs.exists(path.join(global.appRoot,'data','install.json'),exists=>global.installed = exists)
 
     app.use('/install',(req,res,next)=>{
         if(req.method != 'GET'){

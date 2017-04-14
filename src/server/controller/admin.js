@@ -1,8 +1,6 @@
-const auth = require('../../test/datas/auth.json')
-const {encryptPassword} = require('../../utils/encrypt.js')
 const log = require('../log.js')
 const {CODE} = require('../../utils/code.js')
-
+const user = require('../service/user.js')
 
 
 module.exports.login = (req,res)=>{
@@ -11,8 +9,8 @@ module.exports.login = (req,res)=>{
 
 module.exports.postlogin = (req,res)=>{
     let account = req.body.username
-    let password = encryptPassword(req.body.password)
-    if(account == auth.account && password == auth.password){
+    let password = req.body.password
+    if(user.verify(account,password)){
         log.info('login success!')
         req.session.user = {token:1}
         res.send({code:CODE.OK})
