@@ -39,3 +39,7 @@ jspm_packages
 public
 
 bower_components
+
+*.db
+
+src/data/*.json
