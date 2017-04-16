@@ -3,8 +3,9 @@ import Component from 'vue-class-component'
 import axios from "axios"
 const code = require('../../../utils/code.js')
 import VueRouter from 'vue-router'
-import {Welcome,Edit} from './components'
+import {Welcome} from './components'
 import {Setting} from './setting'
+import {Edit} from './edit'
 
 
 Vue.use(VueRouter)

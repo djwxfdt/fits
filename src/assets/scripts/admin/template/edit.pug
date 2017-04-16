@@ -21,3 +21,15 @@
         
     .hide
         a(ref="openBtn" href="javascript:;" @click="openPreview")
+
+    .side-bar(v-bind:class="showBar?'show-bar':'hide-bar'")
+        .drag-btn(@click="showCategory")
+            div 目
+            div 录
+        .show-content
+            .drop-btn(@click="hideCategory") 收起
+                
+            .content
+                .title 设置目录
+            
+            
