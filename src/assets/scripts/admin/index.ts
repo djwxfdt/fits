@@ -4,11 +4,13 @@ import axios from "axios"
 const code = require('../../../utils/code.js')
 import VueRouter from 'vue-router'
 import {Welcome,Edit} from './components'
+import {Setting} from './setting'
+
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit }]
+   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit },{path:'/setting',component:Setting}]
 })
 
 @Component({

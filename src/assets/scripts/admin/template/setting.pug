@@ -1,0 +1,31 @@
+form.setting-view(@submit.prevent="onSubmit")
+    .options
+        h5 1.主题设置
+        .radio
+            label(v-for="(item,index) in templates")
+                input(type="radio" v-model="template" v-bind:value="item.name" name="group")
+                span {{item.desc}}（作者：{{item.author}}）
+        
+    .options
+        h5 2.个人设置
+        .form-horizontal
+            .form-group
+                label.col-sm-2.control-label(for="nickname") 昵称:
+                .col-sm-4
+                    input(type="text" class="form-control" id="nickname" placeholder="请输入昵称" v-model="nickname")
+        .form-horizontal
+            .form-group
+                label.col-sm-2.control-label(for="email") 邮箱:
+                .col-sm-4
+                    input(type="email" class="form-control" id="email" placeholder="邮件地址" v-model="email")
+        .form-horizontal
+            .form-group
+                label.col-sm-2.control-label(for="sitename") 网站名称:
+                .col-sm-4
+                    input(type="text" class="form-control" id="sitename" placeholder="网站名称" v-model="sitename")
+
+    .options
+        h5 3.数据统计代码（代码将会插入每个页面内）
+        textarea.statistics(v-model="statistics" placeholder="这里输入统计代码")
+
+    input.submit.btn.btn-primary(type="submit" value="提交")

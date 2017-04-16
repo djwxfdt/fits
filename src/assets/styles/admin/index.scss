@@ -1,5 +1,7 @@
 @import '../common.scss';
 @import "./edit.scss";
+@import "./setting.scss";
+
 body{
     background: url(/images/admin/bg2.png);
     background-size: cover;
@@ -49,6 +51,7 @@ body{
                 background: #f0f0f0;
                 height: 500px;
                 border-radius: 6px;
+                position: relative;
                 .welcome{
                     width: 100%;
 

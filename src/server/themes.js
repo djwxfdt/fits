@@ -5,13 +5,13 @@ module.exports = [{
 },{
     name:'simple2',
     desc:'简单风格',
-    author:'Sampson'
+    author:'未完成'
 },{
     name:'csdn',
     desc:'csdn 博客风格',
-    author:'Sampson'
+    author:'未完成'
 },{
     name:'jianshu',
     desc:'简书 博客风格',
-    author:'Sampson'
+    author:'未完成'
 }]
