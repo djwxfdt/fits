@@ -39,7 +39,7 @@ class User{
     }
 
     getStatistics(){
-        return this.db.get('user.statistics').value()
+        return this.db.get('statistics').value()
     }
 
     verify(account,password){

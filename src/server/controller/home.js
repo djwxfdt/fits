@@ -1,15 +1,18 @@
-const userInfo = require('../../test/datas/user.json')
 const Post = require('../service/post.js')
-const showdown = require('showdown')
+const Converter = require('showdown').Converter
+const user = require('../service/user.js')
 
 module.exports.index = (req,res)=>{
-	res.locals.user = userInfo
-	let converter = new showdown.Converter()
+	res.locals.user = {}
+	let theme = user.getTheme()
+	res.locals.statistics = user.getStatistics()
+
+	let converter = new Converter()
 	Post.all().then(list=>{
 		res.locals.articles = list.map(item=>{
 			 item.body = converter.makeHtml(item.body)
 			 return item
 		})
-		res.render(`theme/${userInfo.theme || 'default'}/index`)
+		res.render(`theme/${theme || 'default'}/index`)
 	})
 }

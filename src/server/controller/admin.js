@@ -32,7 +32,7 @@ module.exports.postSetting = (req,res)=>{
     user.save('user.nickname',nickname)
     user.save('user.email',email)
     user.save('user.sitename',sitename)
-    user.save('user.statistics',statistics)
+    user.save('statistics',statistics)
     res.send({code:CODE.OK})
 }
 
