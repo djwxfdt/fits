@@ -1,4 +1,4 @@
-.edit-view
+.edit-view(v-bind:class="full?'is-full':''")
     template(v-if="finished==false")
         .head
             input.title.center(v-model="title")
@@ -7,7 +7,7 @@
                     .icon.fa.fa-film(aria-hidden="true" )
                 .save(title="保存")
                     .icon.fa.fa-floppy-o(aria-hidden="true" )
-                .full-screen(title="全屏")
+                .full-screen(title="全屏" @click="fullScreen")
                     .icon.fa.fa-expand(aria-hidden="true")
                 .send(@click="send" title="发布")
                     .icon.fa.fa-share(aria-hidden="true")

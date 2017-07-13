@@ -13,6 +13,7 @@ export class Edit extends Vue {
     previewUrl:string = ""
     title:string = '未命名标题'
     showBar:boolean = false
+    full:boolean = false
 
     $refs: {
         openBtn: any
@@ -48,6 +49,10 @@ export class Edit extends Vue {
                 }
             }
         })
+    }
+
+    fullScreen():void{
+        this.full = !this.full
     }
 
     showCategory(){
