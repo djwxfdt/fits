@@ -13,8 +13,7 @@ const Comment = new Schema({
     body:String
 })
 
-
 module.exports = {
     BlogPost,
-    Comment
+    Comment,
 }

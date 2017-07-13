@@ -46,6 +46,8 @@ export class Edit extends Vue {
                     this.id = res.data.id
                     this.previewUrl = "/article/preview?id=" + this.id
                      this.$refs.openBtn.click();
+                     this.full = false;
+                     
                 }
             }
         })

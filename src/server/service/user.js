@@ -18,12 +18,28 @@ class User{
         this.db.set(type,data).write()
     }
 
+    get(type){
+        this.db.get(type).value()
+    }
+
     getName(){
         return this.db.get('user.nickname').value() || 'admin'
     }
 
     getSiteName(){
         return this.db.get('user.sitename').value()
+    }
+
+    getTheme(){
+        return this.db.get('user.template').value() || 'simple'
+    }
+
+    getEmail(){
+        return this.db.get('user.email').value()
+    }
+
+    getStatistics(){
+        return this.db.get('user.statistics').value()
     }
 
     verify(account,password){
@@ -36,7 +52,18 @@ class User{
     getInfo(){
         return {
             nickname:this.getName(),
-            sitename:this.getSiteName()
+            sitename:this.getSiteName(),
+            theme:this.getTheme()
+        }
+    }
+
+    getSetting(){
+        return {
+            nickname:this.getName(),
+            sitename:this.getSiteName(),
+            template:this.getTheme(),
+            email:this.getEmail(),
+            statistics:this.getStatistics()
         }
     }
 

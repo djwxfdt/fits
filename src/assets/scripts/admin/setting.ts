@@ -1,6 +1,8 @@
 import Vue,{ ComponentOptions } from 'vue'
 import Component from 'vue-class-component'
 const themes = require('../../../server/themes.js')
+import axios from "axios"
+const {translateError,CODE} = require('../../../utils/code.js')
 
 @Component({
     template: require('./template/setting.pug')(),
@@ -16,10 +18,29 @@ export class Setting extends Vue {
 
     statistics:string = ''
 
-    onSubmit():void{
+    loading:boolean = true
 
+    onSubmit():void{
+        axios.post('/admin/setting',{template:this.template,nickname:this.nickname,email:this.email,sitename:this.sitename,statistics:this.statistics}).then(res=>{
+            if(res.data.code && res.data.code == CODE.OK){
+                alert("success")
+            }
+        });
     }
 
     created():void{
+        this.loading = true
+        axios.get('/admin/setting').then(res=>{
+            if(res.data.code && res.data.code == CODE.OK){
+                let {template,nickname,email,sitename,statistics} = res.data.info
+                this.template = template
+                this.nickname = nickname
+                this.email = email
+                this.sitename = sitename
+                this.statistics = statistics
+            }
+            this.loading = false
+            
+        })
     }
 }
