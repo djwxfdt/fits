@@ -37,6 +37,14 @@ class Post{
             return new Promise((resolve)=>resolve([]))
         }
     }
+
+    static get(id){
+        if(db.getType() == 'mongodb'){
+            let conn = db.createConnection()
+            let BlogPost = conn.model('post',Shemas.BlogPost)
+            return BlogPost.findOne({_id:id})
+        }
+    }
 }
 
 module.exports = Post
