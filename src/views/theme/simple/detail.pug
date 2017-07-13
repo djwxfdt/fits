@@ -13,6 +13,10 @@ block body
                         
                 .primary.col-lg-9
                     .main
-                    
+                        article.article
+                            header
+                                a(href=`/details/${article.id}`)
+                                    h2 #{article.title}
+                            section!=article.body
                     .comments
                     

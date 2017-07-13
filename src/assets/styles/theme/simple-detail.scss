@@ -12,4 +12,23 @@
             font-family: Roboto Slab;
         }
     }
+    .article{
+        padding: 60px 35px !important;
+        border-bottom: 1px solid #EEE;
+        header{
+            border-bottom: 1px solid #F3F3F3;
+            padding-bottom: 10px;
+            h2{
+                color: #323a45;
+            }
+        }
+        h2{
+            font-size: 44px;
+            font-family: "Roboto Slab";
+            font-weight: 300;
+        }
+        .content{
+            padding-top: 30px;
+        }
+    }
 }
