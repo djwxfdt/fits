@@ -6,12 +6,14 @@ import VueRouter from 'vue-router'
 import {Welcome} from './components'
 import {Setting} from './setting'
 import {Edit} from './edit'
+import {List} from './list'
+
 
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit },{path:'/setting',component:Setting}]
+   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit },{path:'/setting',component:Setting},{path:'/list',component:List}]
 })
 
 @Component({

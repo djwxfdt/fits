@@ -1,6 +1,7 @@
 const log = require('../log.js')
 const {CODE} = require('../../utils/code.js')
 const user = require('../service/user.js')
+const Post = require('../service/post.js')
 
 
 module.exports.login = (req,res)=>{
@@ -38,4 +39,17 @@ module.exports.postSetting = (req,res)=>{
 
 module.exports.setting = (req,res)=>{
     res.send({code:CODE.OK,info:user.getSetting()})
+}
+
+module.exports.articles = (req,res)=>{
+    Post.all().then(list=>{
+        let ls  = list.map(item=>{
+             return {
+                 title:item.title,
+                 id:item._id,
+                 date:item.date
+             }
+        })
+        res.send({code:CODE.OK,list:ls})
+    })
 }

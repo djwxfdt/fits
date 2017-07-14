@@ -1,0 +1,28 @@
+.list-view
+    .head
+        .ops
+            .btn.btn-default 删除
+    .list-container
+        .header
+            .col.col-1 选择
+            .col.col-5 标题
+            .col.col-2 时间 
+            .col.col-1 阅读数
+            .col.col-1 编辑
+            
+        .list
+            .item(v-for="item in list")
+                .col.col-1 
+                    input(type="checkbox")
+                .col.col-6 {{item.title}}
+                .col.col-2 {{item.date}} 
+                .col.col-1 0
+                .col.col-1 
+                    a(href="javascript:;") 编辑
+                
+            
+             
+            
+
+    
+            
