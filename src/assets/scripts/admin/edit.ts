@@ -47,7 +47,7 @@ export class Edit extends Vue {
                     this.previewUrl = "/article/preview?id=" + this.id
                      this.$refs.openBtn.click();
                      this.full = false;
-                     
+
                 }
             }
         })
@@ -63,5 +63,19 @@ export class Edit extends Vue {
 
     hideCategory(){
         this.showBar = false
+    }
+
+    created():void{
+        if(this.$route.params["id"]){
+            let id = this.$route.params["id"]
+            axios.get('/article/' + id).then(res=>{
+                if(res.data.code && res.data.code == CODE.OK){
+                    let article = res.data.article
+                    this.title = article.title
+                    this.id = article.id
+                    this.article = article.body
+                }
+            });
+        }
     }
 }

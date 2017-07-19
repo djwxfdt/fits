@@ -18,7 +18,7 @@
                 .col.col-2 {{item.date}} 
                 .col.col-1 0
                 .col.col-1 
-                    a(href="javascript:;") 编辑
+                    router-link(:to="'/edit/'+ item.id") 编辑
                 
             
              

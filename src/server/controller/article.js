@@ -30,3 +30,18 @@ module.exports.preview = (req,res)=>{
     res.locals.user = userInfo
     res.render(`theme/${userInfo.theme || 'default'}/preview`,{article:converter.makeHtml(article)})
 }
+
+module.exports.index = (req,res)=>{
+    Post.get(req.params.id).then(doc=>{
+        if(doc){
+            res.send({code:CODE.OK,article:doc})
+        }
+        else{
+            res.send({code:-1})
+        }
+
+    }).catch(err=>{
+        console.error(err)
+        res.send({code:-1})
+    })
+}

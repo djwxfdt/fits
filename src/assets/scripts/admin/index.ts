@@ -13,7 +13,7 @@ import {List} from './list'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit },{path:'/setting',component:Setting},{path:'/list',component:List}]
+   routes:[{ path: '/', component: Welcome },{ path: '/edit', component: Edit },{ path: '/edit/:id', component: Edit },{path:'/setting',component:Setting},{path:'/list',component:List}]
 })
 
 @Component({

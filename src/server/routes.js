@@ -4,7 +4,9 @@ const path = require('path')
 const _ = require('lodash')
 
 const customeRules = {
-	'/details/:id$':'detail.index'
+	'/details/:id$':'detail.index',
+	'/article/:id$':'article.index'
+
 }
 
 module.exports = app => {
