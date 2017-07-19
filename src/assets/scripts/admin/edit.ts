@@ -72,8 +72,10 @@ export class Edit extends Vue {
                 if(res.data.code && res.data.code == CODE.OK){
                     let article = res.data.article
                     this.title = article.title
-                    this.id = article.id
+                    this.id = id
                     this.article = article.body
+
+                    console.error(this.id)
                 }
             });
         }

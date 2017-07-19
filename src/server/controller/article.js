@@ -14,10 +14,16 @@ module.exports.postdraft = (req,res)=>{
 }
 
 module.exports.postsave = (req,res)=>{
-    Post.save({
-        title:req.body.title,
-        body:req.body.article
-    })
+    let {id,title,article} = req.body
+    if(id){
+        Post.update({id,title,article})
+    }
+    else{
+        Post.save({
+            title:req.body.title,
+            body:req.body.article
+        })
+    }
     res.send({
         code:CODE.OK
     })

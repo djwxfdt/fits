@@ -15,6 +15,22 @@ class Post{
         }
     }
 
+    static update({id,article,title}){
+        if(db.getType() == 'mongodb'){
+            let conn = db.createConnection()
+            let BlogPost = conn.model('post',Shemas.BlogPost)
+            return BlogPost.findById(id,(err,doc)=>{
+                if(article){
+                    doc.body = article
+                }
+                if(title){
+                    doc.title = title
+                }
+                doc.save()
+            })
+        }
+    }
+
     static all(){
         if(db.getType() == 'mongodb'){
             let conn = db.createConnection()
