@@ -11,7 +11,11 @@ class Post{
             post.title = data.title
             post.body = data.body
             post.date = new Date().getTime()
-            post.save()
+            return new Promise((resolve)=>{
+                 post.save((err,data)=>{
+                     resolve(data)
+                 })
+            })
         }
     }
 

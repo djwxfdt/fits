@@ -27,6 +27,17 @@ export class Edit extends Vue {
         });
     }
 
+    save():void{
+        axios.post('/article/save',{article:this.article,id:this.id,title:this.title}).then(res=>{
+            if(res.data.code && res.data.code == CODE.OK){
+                if(!this.id){
+                    this.id = res.data.id
+                }
+                alert("保存成功");
+            }
+        });
+    }
+
     postDraft():any{
         return axios.post('/article/draft',{article:this.article,id:this.id});
     }

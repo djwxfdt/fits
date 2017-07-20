@@ -17,16 +17,22 @@ module.exports.postsave = (req,res)=>{
     let {id,title,article} = req.body
     if(id){
         Post.update({id,title,article})
+        res.send({
+            code:CODE.OK
+        })
     }
     else{
         Post.save({
             title:req.body.title,
             body:req.body.article
+        }).then(data=>{
+            res.send({
+                code:CODE.OK,
+                id:data._id
+            })
         })
     }
-    res.send({
-        code:CODE.OK
-    })
+
 }
 
 
