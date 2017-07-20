@@ -16,7 +16,7 @@
                     input(type="checkbox" v-model="checkboxes" v-bind:value="item.id" v-bind:id="item.id")
                 .col.col-6 {{item.title}}
                 .col.col-2 {{item.date}} 
-                .col.col-1 0
+                .col.col-1 {{item.visits || 0}}
                 .col.col-1 
                     router-link(:to="'/edit/'+ item.id") 编辑
                 

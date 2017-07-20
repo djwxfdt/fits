@@ -47,7 +47,8 @@ module.exports.articles = (req,res)=>{
              return {
                  title:item.title,
                  id:item._id,
-                 date:item.date
+                 date:item.date,
+                 visits:item.visits
              }
         })
         res.send({code:CODE.OK,list:ls})
