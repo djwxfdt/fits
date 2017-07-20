@@ -38,7 +38,7 @@ class Post{
 
             return new Promise((resolve)=>{
                 try{
-                    BlogPost.find({},null,{sort: '-date'},(err,docs)=>{
+                    BlogPost.find({ deleted: { $ne: true },_id:{$exists:true} },null,{sort: '-date'},(err,docs)=>{
                         resolve(docs)
                     })
                 }
@@ -59,6 +59,24 @@ class Post{
             let conn = db.createConnection()
             let BlogPost = conn.model('post',Shemas.BlogPost)
             return BlogPost.findOne({_id:id})
+        }
+    }
+
+    static delete(ids){
+        if(db.getType() == 'mongodb'){
+            let conn = db.createConnection()
+            let BlogPost = conn.model('post',Shemas.BlogPost)
+            let prs = ids.map(id=>new Promise((resolve)=>{
+                BlogPost.findById(id,(err,doc)=>{
+                    if(!err && doc){
+                        doc.deleted = true
+                        doc.save()
+                    }
+                    resolve()
+                })
+            }))
+
+            return Promise.all(prs)
         }
     }
 }

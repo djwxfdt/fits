@@ -47,7 +47,18 @@ module.exports.index = (req,res)=>{
         }
 
     }).catch(err=>{
-        console.error(err)
-        res.send({code:-1})
+        res.send({code:-1,err:err})
+    })
+}
+
+
+module.exports.postdelete = (req,res)=>{
+    let {ids} = req.body
+    if(!ids || ids.length == 0){
+        res.send({code:CODE.OK})
+    }
+    Post.delete(ids).then(()=>{
+        res.send({code:CODE.OK})
+
     })
 }

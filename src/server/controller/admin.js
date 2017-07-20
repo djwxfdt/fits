@@ -43,7 +43,7 @@ module.exports.setting = (req,res)=>{
 
 module.exports.articles = (req,res)=>{
     Post.all().then(list=>{
-        let ls  = list.map(item=>{
+        let ls  = list.filter(item=>item._id).map(item=>{
              return {
                  title:item.title,
                  id:item._id,

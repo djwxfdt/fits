@@ -1,7 +1,7 @@
 .list-view
     .head
         .ops
-            .btn.btn-default 删除
+            .btn.btn-default(v-on:click="deleteItem") 删除
     .list-container
         .header
             .col.col-1 选择
@@ -13,7 +13,7 @@
         .list
             .item(v-for="item in list")
                 .col.col-1 
-                    input(type="checkbox")
+                    input(type="checkbox" v-model="checkboxes" v-bind:value="item.id" v-bind:id="item.id")
                 .col.col-6 {{item.title}}
                 .col.col-2 {{item.date}} 
                 .col.col-1 0
