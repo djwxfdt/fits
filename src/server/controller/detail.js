@@ -12,7 +12,11 @@ module.exports.index = (req,res,next) => {
             doc.save()
 
             doc.body = converter.makeHtml(doc.body)
-            res.locals.article = doc
+            res.locals.article = {
+                body:converter.makeHtml(doc.body),
+                title:doc.title,
+                id:doc._id
+            }
             res.locals.user = userInfo
             res.render(`theme/${userInfo.theme || 'default'}/detail`)
         }
