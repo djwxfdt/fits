@@ -10,7 +10,7 @@ module.exports.index = (req,res)=>{
 	let converter = new Converter()
 	Post.all().then(list=>{
 		res.locals.articles = list.map(item=>{
-			 item.body = converter.makeHtml(item.body)
+			 item.body = converter.makeHtml(item.body.substr(0,200) + '...')
 			 return item
 		})
 		res.render(`theme/${theme || 'default'}/index`)
