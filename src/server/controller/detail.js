@@ -10,8 +10,6 @@ module.exports.index = (req,res,next) => {
         if(doc){
             doc.visits = (doc.visits || 0) + 1
             doc.save()
-
-            doc.body = converter.makeHtml(doc.body)
             res.locals.article = {
                 body:converter.makeHtml(doc.body),
                 title:doc.title,
