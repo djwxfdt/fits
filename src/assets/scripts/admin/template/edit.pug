@@ -31,5 +31,13 @@
                 
             .content
                 .title 设置目录
-            
-            
+                .list
+                    label.item(v-for="item in list")
+                        .col.checkbox
+                            input(type="radio" v-model="checkboxes" v-bind:value="item.id" name="radio")
+                        .col.name {{item.title}}
+                .bottom
+                    .input
+                        input(type="text" v-model="category")
+                    .add 
+                        a(href="javascript:;" @click="addCategory") 新建

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-const Category = new Schema({
+const BlogCategory = new Schema({
     title   :String,
     parent : {type: Schema.Types.ObjectId, ref: 'Category' }
 })
@@ -27,5 +27,5 @@ const Comment = new Schema({
 module.exports = {
     BlogPost,
     Comment,
-    Category
+    BlogCategory
 }

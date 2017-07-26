@@ -11,6 +11,9 @@ class Post{
             post.title = data.title
             post.body = data.body
             post.date = new Date().getTime()
+            if(data.category){
+                post.category = data.category
+            }
             return new Promise((resolve)=>{
                  post.save((err,data)=>{
                      resolve(data)
@@ -19,7 +22,7 @@ class Post{
         }
     }
 
-    static update({id,article,title}){
+    static update({id,article,title,category}){
         if(db.getType() == 'mongodb'){
             let conn = db.createConnection()
             let BlogPost = conn.model('post',Shemas.BlogPost)
@@ -29,6 +32,9 @@ class Post{
                 }
                 if(title){
                     doc.title = title
+                }
+                if(category){
+                    doc.category = category
                 }
                 doc.save()
             })

@@ -180,6 +180,42 @@
                         background: #dedede;
                         display: flex;
                         overflow: auto;
+                        flex-direction: column;
+                        .title{
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        .list{
+                            height: 320px;
+                            .item{
+                                display: flex;
+                                align-items: center;
+                                padding: 2px 2px;
+                                font-weight: normal;
+                                input{
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                        .bottom{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            align-items: center;
+                            .input{
+                                width: 100px;
+                                input{
+                                    width: 100%;
+                                    outline: none;
+                                }
+                            }
+                            .add{
+
+                            }
+
+                        }
                     }
                 }
 
@@ -199,6 +235,6 @@
             background: white;
         }
 
-        
+
     }
 }

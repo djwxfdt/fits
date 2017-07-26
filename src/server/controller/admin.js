@@ -2,7 +2,7 @@ const log = require('../log.js')
 const {CODE} = require('../../utils/code.js')
 const user = require('../service/user.js')
 const Post = require('../service/post.js')
-
+const Category = require('../service/category.js')
 
 module.exports.login = (req,res)=>{
     res.render('login')
@@ -52,5 +52,29 @@ module.exports.articles = (req,res)=>{
              }
         })
         res.send({code:CODE.OK,list:ls})
+    })
+}
+
+module.exports.categories = (req,res)=>{
+    Category.all().then(list=>{
+        res.send({
+            code:CODE.OK,
+            list:list.map(item=>{
+                return {
+                    title:item.title,
+                    id:item._id
+                }
+            })
+        })
+    })
+}
+
+module.exports.postcategory = (req,res)=>{
+    let title = req.body.title
+    Category.save({title}).then(doc=>{
+        res.send({
+            code:CODE.OK,
+            doc
+        })
     })
 }

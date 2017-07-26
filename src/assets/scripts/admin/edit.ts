@@ -14,13 +14,16 @@ export class Edit extends Vue {
     title:string = '未命名标题'
     showBar:boolean = false
     full:boolean = false
+    list = []
+    category = ""
+    checkboxes = ""
 
     $refs: {
         openBtn: any
      }
 
     send():void{
-        axios.post('/article/save',{article:this.article,id:this.id,title:this.title}).then(res=>{
+        axios.post('/article/save',{article:this.article,id:this.id,title:this.title,category:this.checkboxes}).then(res=>{
             if(res.data.code && res.data.code == CODE.OK){
                 this.finished = true
             }
@@ -28,7 +31,7 @@ export class Edit extends Vue {
     }
 
     save():void{
-        axios.post('/article/save',{article:this.article,id:this.id,title:this.title}).then(res=>{
+        axios.post('/article/save',{article:this.article,id:this.id,title:this.title,category:this.checkboxes}).then(res=>{
             if(res.data.code && res.data.code == CODE.OK){
                 if(!this.id){
                     this.id = res.data.id
@@ -76,6 +79,23 @@ export class Edit extends Vue {
         this.showBar = false
     }
 
+    addCategory(){
+        if(this.category.length == 0){
+            return
+        }
+        axios.post('/admin/category',{title:this.category}).then(res=>{
+            this.refreshCategories()
+        })
+    }
+
+    refreshCategories(){
+        axios.get('/admin/categories').then(res=>{
+            if(res.data.code && res.data.code == CODE.OK){
+                this.list = res.data.list
+            }
+        })
+    }
+
     created():void{
         if(this.$route.params["id"]){
             let id = this.$route.params["id"]
@@ -85,10 +105,11 @@ export class Edit extends Vue {
                     this.title = article.title
                     this.id = id
                     this.article = article.body
-
-                    console.error(this.id)
+                    this.checkboxes = article.category
                 }
             });
         }
+
+        this.refreshCategories()
     }
 }
