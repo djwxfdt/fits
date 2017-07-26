@@ -14,18 +14,18 @@ header.site-header(role="header")
     .categories.widget
         h3.widget-title #{_T("categories")}
         ul
-            -for(let link of user.categories || []){
+            -for(let link of categories || []){
                 li
-                    a(href=link.href) #{link.title}
+                    a(href='/categories/' + link.id) #{link.title}
             -}
                 
     .recent-posts.widget
         
         h3.widget-title #{_T("recent posts")}
         ul
-            -for(let link of user.recentPosts || []){
+            -for(let link of latests || []){
                 li
-                    a(href=link.href) #{link.title}
+                    a(href='/details/' + link.id) #{link.title}
             -}
         
     .recent-comments.widget

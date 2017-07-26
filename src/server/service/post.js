@@ -64,6 +64,29 @@ class Post{
         }
     }
 
+    static getByCategory(id){
+        if(db.getType() == 'mongodb'){
+            let conn = db.createConnection()
+            let BlogPost = conn.model('post',Shemas.BlogPost)
+
+            return new Promise((resolve)=>{
+                try{
+                    BlogPost.find({category:id,deleted: { $ne: true },_id:{$exists:true} },null,{sort: '-date'},(err,docs)=>{
+                        resolve(docs)
+                    })
+                }
+                catch(err){
+                    log.error(err)
+                    resolve([])
+                }
+
+            })
+        }
+        else{
+            return new Promise((resolve)=>resolve([]))
+        }
+    }
+
     static pick(n = 1){
         if(db.getType() == 'mongodb'){
             let conn = db.createConnection()
