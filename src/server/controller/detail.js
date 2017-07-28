@@ -1,12 +1,20 @@
 const Post = require('../service/post.js')
 const Converter = require('showdown').Converter
 const user = require('../service/user.js')
+const Category = require('../service/category.js')
 
 let converter = new Converter()
 
 
 module.exports.index = (req,res,next) => {
-    Post.get(req.params.id).then(doc=>{
+
+    let cps = Category.all().then(list=>Promise.all(
+        list.map(item=>new Promise(r=>Post.countByCategory(item._id).then(c=>{
+            r({title:item.title,_id:item._id,count:c})
+        })))
+    ))
+
+    Promise.all([Post.get(req.params.id),Post.pick(4),cps,cps]).then(([doc,latests,categories])=>{
         if(doc){
             doc.visits = (doc.visits || 0) + 1
             doc.save()
@@ -15,6 +23,13 @@ module.exports.index = (req,res,next) => {
                 title:doc.title,
                 id:doc._id
             }
+            res.locals.latests = latests.filter(item=>item.id).map(item=>{
+                return {
+                    title:item.title,
+                    id:item._id
+                }
+            })
+            res.locals.categories = categories
             res.locals.setting = user.getSetting()
             res.locals.user = {}
             res.render(`theme/${user.getTheme() || 'default'}/detail`)
@@ -22,7 +37,6 @@ module.exports.index = (req,res,next) => {
         else{
             next()
         }
-
     }).catch(err=>{
         res.send(err)
     })
