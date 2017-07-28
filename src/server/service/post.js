@@ -135,6 +135,14 @@ class Post{
             return Promise.all(prs)
         }
     }
+
+    static countByCategory(id){
+        if(db.getType() == 'mongodb'){
+            let conn = db.createConnection()
+            let BlogPost = conn.model('post',Shemas.BlogPost)
+            return BlogPost.find({category:id,deleted: { $ne: true }}).count()
+        }
+    }
 }
 
 module.exports = Post

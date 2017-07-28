@@ -16,7 +16,7 @@ header.site-header(role="header")
         ul
             -for(let link of categories || []){
                 li
-                    a(href='/categories/' + link.id) #{link.title}
+                    a(href='/categories/' + link.id) #{link.title}(#{link.count})
             -}
                 
     .recent-posts.widget
