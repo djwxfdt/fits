@@ -1,6 +1,6 @@
 const Post = require('../service/post.js')
-const userInfo = require('../../test/datas/user.json')
 const Converter = require('showdown').Converter
+const user = require('../service/user.js')
 
 let converter = new Converter()
 
@@ -15,8 +15,9 @@ module.exports.index = (req,res,next) => {
                 title:doc.title,
                 id:doc._id
             }
-            res.locals.user = userInfo
-            res.render(`theme/${userInfo.theme || 'default'}/detail`)
+            res.locals.setting = user.getSetting()
+            res.locals.user = {}
+            res.render(`theme/${user.getTheme() || 'default'}/detail`)
         }
         else{
             next()
