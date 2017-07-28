@@ -1,8 +1,8 @@
 header.site-header(role="header")
     .hgroup
         h1.site-title
-            a(href="/") #{user.siteTitle} 
-        h2.sub-title #{user.subTitle}
+            a(href="/") #{setting.sitename} 
+        h2.sub-title #{setting.subname}
     nav.navigation
         .nav-menu
             ul
@@ -16,7 +16,7 @@ header.site-header(role="header")
         ul
             -for(let link of categories || []){
                 li
-                    a(href='/categories/' + link.id) #{link.title}(#{link.count})
+                    a(href='/categories/' + link.id) #{link.title}（#{link.count}）
             -}
                 
     .recent-posts.widget

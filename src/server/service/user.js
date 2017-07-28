@@ -30,6 +30,10 @@ class User{
         return this.db.get('user.sitename').value()
     }
 
+    getSubtitle(){
+        return this.db.get('user.subtitle').value()
+    }
+
     getTheme(){
         return this.db.get('user.template').value() || 'simple'
     }
@@ -62,6 +66,7 @@ class User{
             nickname:this.getName(),
             sitename:this.getSiteName(),
             template:this.getTheme(),
+            subname:this.getSubtitle(),
             email:this.getEmail(),
             statistics:this.getStatistics()
         }

@@ -28,6 +28,7 @@ module.exports.index = (req,res)=>{
 			}
 		})
 		res.locals.categories = categories
+		res.locals.setting = user.getSetting()
 		res.render(`theme/${theme || 'default'}/index`)
 	})
 

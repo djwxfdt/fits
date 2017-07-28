@@ -23,6 +23,11 @@ form.setting-view(@submit.prevent="onSubmit")
                 label.col-sm-2.control-label(for="sitename") 网站名称:
                 .col-sm-4
                     input(type="text" class="form-control" id="sitename" placeholder="网站名称" v-model="sitename")
+        .form-horizontal
+            .form-group
+                label.col-sm-2.control-label(for="sitename") 网站副标题:
+                .col-sm-4
+                    input(type="text" class="form-control" id="subname" placeholder="网站副标题" v-model="subname")
 
     .options
         h5 3.数据统计代码（代码将会插入每个页面内）

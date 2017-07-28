@@ -28,12 +28,13 @@ module.exports.home = (req,res)=>{
 
 
 module.exports.postSetting = (req,res)=>{
-    let {template,nickname,email,sitename,statistics} = req.body
+    let {template,nickname,email,sitename,statistics,subname} = req.body
     user.save('user.template',template)
     user.save('user.nickname',nickname)
     user.save('user.email',email)
     user.save('user.sitename',sitename)
     user.save('statistics',statistics)
+    user.save('user.subtitle',subname)
     res.send({code:CODE.OK})
 }
 
