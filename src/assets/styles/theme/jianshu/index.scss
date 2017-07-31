@@ -1,0 +1,173 @@
+@import "../../common.scss";
+@import "../fonts.scss";
+
+body{
+    background: white;
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    min-width: 1160px;
+    header{
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        height: 58px;
+        border-bottom: solid 1px #f0f0f0;
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        align-items: center;
+        justify-content: space-between;
+        .logo{
+            color: #ea6f5a;
+            font-size:  30px;
+            font-family: monospace;
+            width: 100px;
+            .text{
+                margin-left: 15px;
+            }
+
+        }
+        .pages{
+            width: 960px;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            a{
+                color: #ea6f5a;
+                font-size: 18px;
+                margin-left: 15px;
+            }
+        }
+        .right{
+            width: 100px;
+            a{
+                width: 75px;
+                height: 40px;
+                line-height: 24px;
+                border-radius: 20px;
+                font-size: 15px;
+                color: #fff;
+                background-color: #ea6f5a;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .container{
+        width: 960px;
+        margin: auto;
+        margin-top: 58px;
+        .carous{
+            display: flex;
+            height: 272px;
+            flex-direction: row;
+            overflow: hidden;
+            border-radius: 4px;
+            .main-baner{
+                height: 100%;
+                width: 66.666%;;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    height: 100%;;
+                }
+            }
+            .side-baner{
+                width: 33.333%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                .item{
+                    height: 50%;
+                    img{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        .main-content{
+            display: flex;
+            flex-direction: row;
+        }
+        .list{
+            margin-top: 15px;
+            width: 66.666%;
+            display: flex;
+            .item{
+                border-top: 1px solid #f0f0f0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                color: #2f2f2f;
+                font-size: 14px;
+                .left{
+                    flex-grow: 1;
+                    .info{
+                        display: flex;
+                        margin-top: 10px;
+                        flex-direction: row;
+                        align-items: center;
+                        img{
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                            margin-right: 5px;
+                        }
+                        .date{
+                            color: #969696;
+                            margin-left: 5px;
+                        }
+                    }
+                    .title{
+                        display: inherit;
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 1.5;
+                        margin-top: 8px;
+                        margin-bottom: 4px;
+                    }
+                    .content{
+                        *{
+                            font-size: 14px;
+                            color: #2f2f2f;
+                            font-weight: normal;
+                            margin: 0px;
+                            line-height: 24px;
+                        }
+                    }
+                    .detail{
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+                .right{
+                    width: 160px;
+                    padding-left: 10px;
+                    flex-shrink: 0;
+                    img{
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+
+        .right-site{
+            margin-top:20px;
+            margin-left: 4.7%;
+            .title{
+                font-size: 14px;
+                color: #969696;
+            }
+        }
+
+    }
+}

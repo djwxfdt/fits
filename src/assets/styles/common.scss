@@ -4,7 +4,13 @@ html{
     body{
         height: 100%;
         a{
+            outline: none;
+            text-decoration: none;
         }
+        a:link { text-decoration: none;color: blue}
+    　　 a:active { text-decoration:blink}
+    　　 a:hover { text-decoration:underline;color: red}
+    　　 a:visited { text-decoration: none;color: green}
         img{
             max-width: 100%;
         }

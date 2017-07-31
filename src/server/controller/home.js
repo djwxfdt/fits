@@ -16,9 +16,11 @@ module.exports.index = (req,res)=>{
 		})))
 	))
 
+	let limit = theme =='jianshu'?80:200
+
 	Promise.all([Post.all(),Post.pick(4),cps]).then(([list,latests,categories])=>{
 		res.locals.articles = list.filter(item=>item.id).map(item=>{
-			item.body = converter.makeHtml((item.body || '').substr(0,200) + '...')
+			item.body = converter.makeHtml((item.body || '').substr(0,limit) + '...')
 			return item
 		})
 		res.locals.latests = latests.filter(item=>item.id).map(item=>{

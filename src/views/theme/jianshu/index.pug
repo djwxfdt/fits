@@ -1,0 +1,60 @@
+extends ../home.pug
+
+block style
+    link(rel="stylesheet" href="/styles/theme/jianshu.css")
+
+
+block body
+    #app
+        header
+            .logo 
+                .text FIZZ
+            .pages
+                a(href="/") 首页
+            .right
+                a(href="/admin/home") 写文章
+        .container
+            .carous
+                .main-baner
+                    img(src="//upload.jianshu.io/admin_banners/web_images/3341/52043e7dc2e5b2a290b340ee2fb744f8324bd557.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540") 
+                
+                .side-baner
+                    .item
+                        img(src="//upload.jianshu.io/admin_banners/web_images/3348/e263ab95fde969887a393b62df652dd0847445a1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540")
+                    .item
+                        img(src="//upload.jianshu.io/admin_banners/web_images/3348/e263ab95fde969887a393b62df652dd0847445a1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540")
+                    
+            .main-content
+                .list
+                    -for(let item of articles || []){
+                        .item
+                            .left
+                                .info
+                                    a(href="#")
+                                        img(src="//upload.jianshu.io/collections/images/14/6249340_194140034135_2.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/195/h/195")
+                                    .text 这是目录
+                                    .date
+                                        - {
+                                        -    let date = new Date(item.date)
+                                        -    let year = date.getFullYear()
+                                        -    let month = date.getMonth() + 1
+                                        -    let day = date.getDate()
+                                            time #{`${year + _T("year") + month + _T("month") + day + _T("day")}`}
+                                        - }
+                                .title!=item.title
+                                section.content!=item.body
+                                .detail
+                                    .views 321
+                                    .comments 32
+                            .right        
+                                img(src="//upload-images.jianshu.io/upload_images/1980684-96b60de8eda6b749.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/375/h/300")
+                    -}
+                
+                
+                .right-site
+                    .latest
+                        .title 最近文章
+                        
+                        .lists
+                        
+                        
