@@ -1,7 +1,7 @@
 import Vue,{ ComponentOptions } from 'vue'
 import Component from 'vue-class-component'
 import axios from "axios"
-const code = require('../../../utils/code.js')
+const code = require('utils/code.js')
 import VueRouter from 'vue-router'
 import {Welcome} from './components'
 import {Setting} from './setting'

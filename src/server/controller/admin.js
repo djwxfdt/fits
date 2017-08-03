@@ -23,7 +23,7 @@ module.exports.postlogin = (req,res)=>{
 }
 
 module.exports.home = (req,res)=>{
-    res.render('admin/home')
+    res.render(`admin/${user.getTheme()}/home`)
 }
 
 

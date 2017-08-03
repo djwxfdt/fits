@@ -17,7 +17,8 @@ themes.map(key=>entry[key]= `${dir}/client/theme/${key}.js`)
 
 Object.assign(entry,{
 	login:`${dir}/admin/login.ts`,
-	admin:`${dir}/admin/index.ts`,
+	'admin-simple':`${dir}/admin/simple/index.ts`,
+	'admin-jianshu':`${dir}/admin/jianshu/index.js`,
 	install:`${dir}/admin/install.ts`,
 })
 
@@ -49,13 +50,20 @@ let config = {
 	resolve: {
 		extensions: ['.ts','.js'],
 		alias: {
-			'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+			'vue$': 'vue/dist/vue.esm.js', // 'vue/dist/vue.common.js' for webpack 1,
+			'utils':path.resolve('./utils') ,
+			'server':path.resolve('./server')
+
 		}
+	},
+	externals: {
+		jquery: 'window.$'
 	},
 	module: {
 		loaders: [
             { test: /\.ts$/, loader: 'ts-loader' },
-			{ test: /\.pug$/, loader: 'pug-loader' }
+			{ test: /\.pug$/, loader: 'pug-loader' },
+			{ test: /\.hbs/, loader: 'handlebars-loader' }
 		]
 	},
 	plugins:plugins

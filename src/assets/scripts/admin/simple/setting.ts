@@ -1,8 +1,8 @@
 import Vue,{ ComponentOptions } from 'vue'
 import Component from 'vue-class-component'
-const themes = require('../../../server/themes.js')
+const themes = require('server/themes.js')
 import axios from "axios"
-const {translateError,CODE} = require('../../../utils/code.js')
+const {translateError,CODE} = require('utils/code.js')
 
 @Component({
     template: require('./template/setting.pug')(),
