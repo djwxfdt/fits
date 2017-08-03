@@ -28,7 +28,6 @@
     "pug-loader": "^2.3.0",
     "sequelize": "^3.30.4",
     "showdown": "^1.6.4",
-    "simplemde": "^1.11.2",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "vue": "^2.2.4",
