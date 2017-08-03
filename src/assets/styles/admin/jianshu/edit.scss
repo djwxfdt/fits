@@ -1,0 +1,29 @@
+.content-right{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    .info{
+        height: 60px;
+        flex-shrink: 0;
+    }
+    .bottom-content{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+
+        .editor-area{
+            flex-grow: 1;
+            .CodeMirror{
+                height: calc(100% - 90px);
+            }
+        }
+        .settings{
+            width: 240px;
+            border-top: solid 1px rgba(176,176,176,.6);
+            margin-left: -4px;
+            padding-left: 4px;
+        }
+    }
+
+}

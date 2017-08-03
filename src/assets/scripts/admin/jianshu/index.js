@@ -2,12 +2,16 @@ const Backbone = require('backbone')
 
 import HomeView from './home.js'
 
+import EditView from './edit.js'
+
+
 const Router = Backbone.Router.extend({
     routes:{
         '':'index',
-        '/list':'list',
-        '/edit/:id':'edit',
-        '/setting':'setting'
+        'list':'list',
+        'new':'edit',
+        'edit/:id':'edit',
+        'setting':'setting'
     },
 
     initialize:()=>{
@@ -16,6 +20,10 @@ const Router = Backbone.Router.extend({
 
     index:()=>{
         new HomeView().render()
+    },
+
+    edit:()=>{
+        new EditView().render()
     }
 })
 
