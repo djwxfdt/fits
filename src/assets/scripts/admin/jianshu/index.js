@@ -4,6 +4,9 @@ import HomeView from './home.js'
 
 import EditView from './edit.js'
 
+import ListView from './list.js'
+
+
 
 const Router = Backbone.Router.extend({
     routes:{
@@ -24,6 +27,10 @@ const Router = Backbone.Router.extend({
 
     edit:()=>{
         new EditView().render()
+    },
+
+    list:()=>{
+        new ListView().render()
     }
 })
 

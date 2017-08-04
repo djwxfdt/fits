@@ -8,13 +8,9 @@ let converter = new Converter()
 
 module.exports.index = (req,res,next) => {
 
-    let cps = Category.all().then(list=>Promise.all(
-        list.map(item=>new Promise(r=>Post.countByCategory(item._id).then(c=>{
-            r({title:item.title,_id:item._id,count:c})
-        })))
-    ))
+    let cps = Category.allWithCount()
 
-    Promise.all([Post.get(req.params.id),Post.pick(4),cps,cps]).then(([doc,latests,categories])=>{
+    Promise.all([Post.get(req.params.id),Post.pick(4),cps]).then(([doc,latests,categories])=>{
         if(doc){
             doc.visits = (doc.visits || 0) + 1
             doc.save()

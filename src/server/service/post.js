@@ -1,148 +1,34 @@
-const db = require('./db.js')
-const Shemas = require('../model/mongo/shemas.js')
-const log = require('../log.js')
+const {BlogModel}  = require('./models.js')
 
 class Post{
     static save(data){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-            let post = new BlogPost()
-            post.title = data.title
-            post.body = data.body
-            post.date = new Date().getTime()
-            if(data.category){
-                post.category = data.category
-            }
-            return new Promise((resolve)=>{
-                 post.save((err,data)=>{
-                     resolve(data)
-                 })
-            })
-        }
+        return new BlogModel({data}).save()
     }
 
-    static update({id,article,title,category}){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-            return BlogPost.findById(id,(err,doc)=>{
-                if(article){
-                    doc.body = article
-                }
-                if(title){
-                    doc.title = title
-                }
-                if(category){
-                    doc.category = category
-                }
-                doc.save()
-            })
-        }
+    static update(data){
+        return BlogModel.updateOne(data)
     }
 
     static all(){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-
-            return new Promise((resolve)=>{
-                try{
-                    BlogPost.find({ deleted: { $ne: true },_id:{$exists:true} },null,{sort: '-date'},(err,docs)=>{
-                        resolve(docs)
-                    })
-                }
-                catch(err){
-                    log.error(err)
-                    resolve([])
-                }
-
-            })
-        }
-        else{
-            return new Promise((resolve)=>resolve([]))
-        }
+        return  BlogModel.findAllAlive()
     }
 
     static getByCategory(id){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-
-            return new Promise((resolve)=>{
-                try{
-                    BlogPost.find({category:id,deleted: { $ne: true },_id:{$exists:true} },null,{sort: '-date'},(err,docs)=>{
-                        resolve(docs)
-                    })
-                }
-                catch(err){
-                    log.error(err)
-                    resolve([])
-                }
-
-            })
-        }
-        else{
-            return new Promise((resolve)=>resolve([]))
-        }
+        return BlogModel.getByCategory(id)
     }
 
     static pick(n = 1){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-
-            return new Promise((resolve)=>{
-                try{
-                    BlogPost.find({ deleted: { $ne: true },_id:{$exists:true} },null,{sort: '-date',limit:n},(err,docs)=>{
-                        resolve(docs)
-                    })
-                }
-                catch(err){
-                    log.error(err)
-                    resolve([])
-                }
-
-            })
-        }
-        else{
-            return new Promise((resolve)=>resolve([]))
-        }
+        return BlogModel.pick(n)
     }
 
     static get(id){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-            return BlogPost.findOne({_id:id})
-        }
+        return BlogModel.getById(id)
     }
 
     static delete(ids){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-            let prs = ids.map(id=>new Promise((resolve)=>{
-                BlogPost.findById(id,(err,doc)=>{
-                    if(!err && doc){
-                        doc.deleted = true
-                        doc.save()
-                    }
-                    resolve()
-                })
-            }))
-
-            return Promise.all(prs)
-        }
+        return BlogModel.deleteByIds(ids)
     }
 
-    static countByCategory(id){
-        if(db.getType() == 'mongodb'){
-            let conn = db.createConnection()
-            let BlogPost = conn.model('post',Shemas.BlogPost)
-            return BlogPost.find({category:id,deleted: { $ne: true }}).count()
-        }
-    }
 }
 
 module.exports = Post

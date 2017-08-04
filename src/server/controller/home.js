@@ -10,11 +10,7 @@ module.exports.index = (req,res)=>{
 	res.locals.statistics = user.getStatistics()
 	let converter = new Converter()
 
-	let cps = Category.all().then(list=>Promise.all(
-		list.map(item=>new Promise(r=>Post.countByCategory(item._id).then(c=>{
-			r({title:item.title,_id:item._id,count:c})
-		})))
-	))
+	let cps = Category.allWithCount()
 
 	let limit = theme =='jianshu'?80:200
 

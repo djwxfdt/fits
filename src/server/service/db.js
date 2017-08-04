@@ -1,6 +1,9 @@
 const user = require('./user.js')
 var mongoose = require('mongoose')
 
+mongoose.Promise = Promise
+
+
 class DB {
     constructor(){
         this.conn = null
