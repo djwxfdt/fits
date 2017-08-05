@@ -41,6 +41,25 @@ export default Backbone.View.extend({
 
     },
     delete:function(){
-        
+        let ids = []
+        $('input:checked').each(function() {
+           ids.push(this.value)
+        })
+
+        $.ajax({
+            url:'/article/delete',
+            dataType: 'json',
+            type:'post',
+            contentType: 'application/json',
+            data:JSON.stringify({ids}),
+            success:(data)=>{
+                if(data.code == 80000){
+                    this._cl.fetch()
+                }
+                else{
+                    alert('删除失败')
+                }
+            }
+        })
     }
 })

@@ -3,41 +3,78 @@
     display: flex;
     flex-direction: column;
     min-height: 600px;
-    .info{
-        height: 60px;
-        flex-shrink: 0;
-        align-items: center;
+    .edit-wrapper{
         display: flex;
-        padding-left: 20px;
+        flex-direction: row;
+        height: 100%;
+    }
+
+    .article{
+        flex-grow: 1;
         .title{
             display: flex;
             flex-grow: 1;
             flex-direction: row;
             align-items: center;
+            border-bottom:solid 1px rgba(176,176,176,.6);
+            justify-content: center;
             input{
-                width: 60%;
+                width: 100%;
+                border:none;
+                font-size: 20px;
+                font-weight: bold;
+                outline: none;
+                font-family: monospace;
+                box-shadow: none;
+                padding-left: 10px;
+                padding-right: 10px;
             }
+            height: 50px;
         }
-    }
-    .bottom-content{
-        flex-grow: 1;
-        display: flex;
-        flex-direction: row;
-        padding: 4px;
-
-
         .editor-area{
             flex-grow: 1;
+            height: calc(100% - 90px);
+            .editor-toolbar{
+                border: none;
+            }
             .CodeMirror{
-                height: calc(100% - 90px);
+                height: calc(100% - 30px);
+                border: none;
             }
         }
-        .settings{
-            width: 240px;
-            border-top: solid 1px rgba(176,176,176,.6);
-            margin-left: -4px;
-            padding-left: 4px;
+        border-right:solid 1px rgba(176,176,176,.6);
+
+    }
+
+    .settings{
+        width: 340px;
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-shrink: 0;
+        .title{
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .item{
+            display: flex;
+            flex-direction: column;
+            .label-title{
+                font-weight: bold;
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+            margin-top: 20px;
+        }
+
+        .save{
+            position: absolute;
+
+            right: 20px;
+            top: 20px;
         }
     }
+
 
 }

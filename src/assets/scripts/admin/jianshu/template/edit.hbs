@@ -3,16 +3,33 @@
 <div class="content">
     {{> partials/navs}}
     <section class="content-right">
-        <div class="info">
-            <div class="title">
-                文章标题：<input type="text" value="{{title}}" class="input form-control"/>
+        <div class="edit-wrapper">
+            <div class="article">
+                <div class="title">
+                    <input type="text" value="{{title}}" class="input title"/>
+                </div>
+                <div class="editor-area">
+                    <textarea class="editor" id="editor"/>
+                </div>
             </div>
-        </div>
-        <div class="bottom-content">
-            <div class="editor-area">
-                <textarea class="editor" id="editor"/>
+            <div class="settings">
+                <div class="title">
+                    文章设置
+                </div>
+
+                <div class="item">
+                    <div class="label-title">海报图片</div>
+                    <input type="text" name="" value="{{poster}}" class="form-control poster">
+                </div>
+
+                <div class="item">
+                    <div class="label-title">标签</div>
+                    <input type="text" name="" value="{{tag}}" class="form-control">
+                </div>
+
+                <a class="btn btn-default save" href="javascript:;" data-id="{{id}}"> 保存 </a>
+
             </div>
-            <div class="settings"></div>
         </div>
     </section>
 </div>

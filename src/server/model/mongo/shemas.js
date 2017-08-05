@@ -13,6 +13,7 @@ const commentSchema = new Schema({
 const blogSchema = new Schema({
     title     : String,
     body      : String,
+    poster      : String,
     date      : Date,
     deleted   :Boolean,
     visits    :Number,
@@ -32,6 +33,7 @@ blogSchema.methods.saveOne = function(){
     let model = this.model('post')
     model.title = data.title
     model.body = data.body
+    model.poster = data.poster
     model.date = new Date().getTime()
     if(data.category){
         model.category = data.category
@@ -44,7 +46,7 @@ blogSchema.methods.saveOne = function(){
 }
 
 blogSchema.statics.updateOne = function(data){
-    let {article,title,category,id} = data
+    let {article,title,category,id,poster} = data
 
     return this.findById(id).then(doc=>{
         if(article){
@@ -56,12 +58,15 @@ blogSchema.statics.updateOne = function(data){
         if(category){
             doc.category = category
         }
+        if(poster){
+            doc.poster = poster
+        }
         return doc.save()
     })
 }
 
 blogSchema.statics.getById = function(id){
-    return this.model('post').findOne({_id:id})
+    return this.model('post').findOne({_id:id}).populate('category')
 }
 
 

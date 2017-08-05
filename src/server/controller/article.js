@@ -14,9 +14,9 @@ module.exports.postdraft = (req,res)=>{
 }
 
 module.exports.postsave = (req,res)=>{
-    let {id,title,article,category} = req.body
+    let {id,title,article,category,poster} = req.body
     if(id){
-        Post.update({id,title,article,category})
+        Post.update({id,title,article,category,poster})
         res.send({
             code:CODE.OK
         })
@@ -25,6 +25,7 @@ module.exports.postsave = (req,res)=>{
         Post.save({
             title:title,
             body:article,
+            poster,
             category:category
         }).then(data=>{
             res.send({

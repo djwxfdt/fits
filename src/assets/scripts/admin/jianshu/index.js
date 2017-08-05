@@ -12,7 +12,7 @@ const Router = Backbone.Router.extend({
     routes:{
         '':'index',
         'list':'list',
-        'new':'edit',
+        'new':'new',
         'edit/:id':'edit',
         'setting':'setting'
     },
@@ -22,15 +22,31 @@ const Router = Backbone.Router.extend({
     },
 
     index:()=>{
-        new HomeView().render()
+        if(!this.homeView){
+            this.homeView = new HomeView()
+        }
+        this.homeView.render()
     },
 
-    edit:()=>{
-        new EditView().render()
+    new:()=>{
+        if(!this.editView){
+            this.editView = new EditView()
+        }
+        this.editView.new()
+    },
+
+    edit:(id)=>{
+        if(!this.editView){
+            this.editView = new EditView()
+        }
+        this.editView.init(id)
     },
 
     list:()=>{
-        new ListView().render()
+        if(!this.listView){
+            this.listView = new ListView()
+        }
+        this.listView.render()
     }
 })
 
