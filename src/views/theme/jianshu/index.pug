@@ -65,7 +65,7 @@ block body
                         .lists
                             -for(let item of latests || []){
                                 .item
-                                    img(src=item.poster)
+                                    img(src=item.poster || "https://i.loli.net/2017/08/05/5985d19e81154.jpg")
                                     a.title(href="/details/" + item.id) #{item.title}
                             -}
                         
