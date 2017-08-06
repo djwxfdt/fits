@@ -6,6 +6,9 @@ import EditView from './edit.js'
 
 import ListView from './list.js'
 
+import TagView from './tags.js'
+
+
 
 
 const Router = Backbone.Router.extend({
@@ -14,7 +17,9 @@ const Router = Backbone.Router.extend({
         'list':'list',
         'new':'new',
         'edit/:id':'edit',
-        'setting':'setting'
+        'setting':'setting',
+        'tags':'tags',
+
     },
 
     initialize:()=>{
@@ -40,6 +45,13 @@ const Router = Backbone.Router.extend({
             this.editView = new EditView()
         }
         this.editView.init(id)
+    },
+
+    tags:()=>{
+        if(!this.tagView){
+            this.tagView = new TagView()
+        }
+        this.tagView.render()
     },
 
     list:()=>{

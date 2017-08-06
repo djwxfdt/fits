@@ -74,6 +74,20 @@ module.exports.categories = (req,res)=>{
     })
 }
 
+module.exports.tags = (req,res)=>{
+    Category.allWithCount().then(categories=>{
+        res.send({
+            list:categories,
+            code:CODE.OK
+        })
+    })
+}
+
+module.exports.posttag = (req,res)=>{
+    let {id,icon,title} = req.body
+    Category.updateOne({id,icon,title}).then(()=>res.send({code:CODE.OK}))
+}
+
 module.exports.postcategory = (req,res)=>{
     let title = req.body.title
     Category.save({title}).then(doc=>{

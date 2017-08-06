@@ -2,7 +2,8 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 const categorySchema = new Schema({
-    title   :String
+    title   :String,
+    icon   :String
 })
 
 const commentSchema = new Schema({
@@ -103,6 +104,7 @@ categorySchema.statics.allWithCount = function(){
         return {
             title:doc.title,
             _id:doc._id,
+            icon:doc.icon,
             count:doc.posts.length
         }
     }))))
@@ -119,6 +121,20 @@ categorySchema.methods.add = function(){
 categorySchema.statics.deleteByIds = function(ids){
     let prs = ids.map(id=>this.remove({_id:id}).exec())
     return Promise.all(prs)
+}
+
+categorySchema.statics.updateOne = function(data){
+    let {title,id,icon} = data
+
+    return this.findById(id).then(doc=>{
+        if(title){
+            doc.title = title
+        }
+        if(icon){
+            doc.icon = icon
+        }
+        return doc.save()
+    })
 }
 
 

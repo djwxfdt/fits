@@ -17,6 +17,10 @@ class Category{
     static delete(ids){
         return CategoryModel.delete(ids)
     }
+
+    static updateOne(data){
+        return CategoryModel.updateOne(data)
+    }
 }
 
 module.exports = Category

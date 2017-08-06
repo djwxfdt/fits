@@ -98,9 +98,40 @@ body{
             display: flex;
             flex-direction: row;
         }
-        .list{
+
+        .left-wrapper{
             margin-top: 15px;
             width: 66.666%;
+            .tags{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 32px;
+                margin-top: 32px;
+                width: 80%;;
+
+                .tag{
+                    background-color: #f7f7f7;
+                    border: 1px solid #dcdcdc;
+                    border-radius: 4px;
+                    color: #2f2f2f;
+                    min-height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 20px;
+                    .text{
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                    img{
+                        height: 32px;
+                        width: 32px;
+                    }
+                }
+            }
+        }
+        .list{
             display: flex;
             flex-direction: column;
             .item{

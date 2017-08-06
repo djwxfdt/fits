@@ -1,0 +1,18 @@
+{{> partials/header.hbs}}
+
+<div class="content">
+    {{> partials/navs}}
+    <section class="content-right">
+        <div class="list">
+            <div class="label-title">标签管理</div>
+            {{#each list}}
+                <div class="item" id={{this._id}}>
+                    <div class="title">{{this.title}}</div>
+                    <div class="count">{{this.count}}篇文章</div>
+                    <input type="text" name="" value="{{this.icon}}" placeholder="图标地址" class="form-control icon">
+                    <a href="javascript:;" class="btn btn-default save" data-id="{{this._id}}">修改</a>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+</div>
