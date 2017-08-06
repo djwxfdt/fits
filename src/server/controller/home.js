@@ -22,7 +22,8 @@ module.exports.index = (req,res)=>{
 		res.locals.latests = latests.filter(item=>item.id).map(item=>{
 			return {
 				title:item.title,
-				id:item._id
+				id:item._id,
+				poster:item.poster
 			}
 		})
 		res.locals.categories = categories

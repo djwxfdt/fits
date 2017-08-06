@@ -72,7 +72,7 @@ blogSchema.statics.getById = function(id){
 
 
 blogSchema.statics.pick = function(n){
-    return this.find({ deleted: { $ne: true },_id:{$exists:true} },['title','_id'],{sort: '-date',limit:n}).exec()
+    return this.find({ deleted: { $ne: true },_id:{$exists:true} },['title','_id','poster'],{sort: '-date',limit:n}).exec()
 }
 
 blogSchema.statics.deleteByIds = function(ids){

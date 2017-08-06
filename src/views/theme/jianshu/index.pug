@@ -63,5 +63,10 @@ block body
                         .title 最近文章
                         
                         .lists
+                            -for(let item of latests || []){
+                                .item
+                                    img(src=item.poster)
+                                    a.title(href="/details/" + item.id) #{item.title}
+                            -}
                         
                         
