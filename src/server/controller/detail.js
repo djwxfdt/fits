@@ -17,7 +17,8 @@ module.exports.index = (req,res,next) => {
             res.locals.article = {
                 body:converter.makeHtml(doc.body),
                 title:doc.title,
-                id:doc._id
+                id:doc._id,
+                poster:doc.poster
             }
             res.locals.latests = latests.filter(item=>item.id).map(item=>{
                 return {

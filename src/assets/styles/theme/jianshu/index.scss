@@ -167,6 +167,10 @@ body{
                         line-height: 1.5;
                         margin-top: 8px;
                         margin-bottom: 4px;
+                        color: #000000;
+                        &:hover{
+                            text-decoration: underline;
+                        }
                     }
                     .content{
                         *{

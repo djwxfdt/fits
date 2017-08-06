@@ -1,0 +1,25 @@
+extends ../detail.pug
+
+
+block style
+    link(rel="stylesheet" href="/styles/theme/jianshu-detail.css")
+
+
+block body
+    #app
+        header
+            .logo 
+                .text FIZZ
+            .pages
+                a(href="/") 首页
+            .right
+                a(href="/admin/home") 写文章
+                
+        .container
+            article.article
+                .title
+                    a(href=`/details/${article.id}`)
+                        h1 #{article.title}
+                .poster
+                    img(src=article.poster)
+                section!=article.body

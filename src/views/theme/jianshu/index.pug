@@ -38,8 +38,8 @@ block body
                                 .left
                                     .info
                                         a(href="#")
-                                            img(src="//upload.jianshu.io/collections/images/14/6249340_194140034135_2.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/195/h/195")
-                                        .text 这是目录
+                                            img(src= (item.category && item.category.icon) || "//upload.jianshu.io/collections/images/502001/6972466d834ce8518e130bf2169da722.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/195/h/195")
+                                        .text #{item.category && item.category.title}
                                         .date
                                             - {
                                             -    let date = new Date(item.date)
@@ -48,7 +48,7 @@ block body
                                             -    let day = date.getDate()
                                                 time #{`${year + _T("year") + month + _T("month") + day + _T("day")}`}
                                             - }
-                                    .title!=item.title
+                                    a.title(href="/details/" + item._id)!=item.title
                                     section.content!=item.body
                                     .detail
                                         .views 321

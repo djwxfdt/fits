@@ -7,10 +7,10 @@ html{
             outline: none;
             text-decoration: none;
         }
-        a:link { text-decoration: none;color: blue}
-    　　 a:active { text-decoration:blink}
-    　　 a:hover { text-decoration:underline;color: red}
-    　　 a:visited { text-decoration: none;color: green}
+        a:link { text-decoration: none;}
+    　　 a:active { text-decoration:none}
+    　　 a:hover { text-decoration:underline;}
+    　　 a:visited { text-decoration: none;}
         img{
             max-width: 100%;
         }

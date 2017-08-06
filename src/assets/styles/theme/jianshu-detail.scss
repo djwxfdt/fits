@@ -1,0 +1,81 @@
+@import "../common.scss";
+@import "./fonts.scss";
+
+body{
+    background: white;
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    min-width: 1160px;
+    header{
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        height: 58px;
+        border-bottom: solid 1px #f0f0f0;
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        align-items: center;
+        justify-content: space-between;
+        .logo{
+            color: #ea6f5a;
+            font-size:  30px;
+            font-family: monospace;
+            width: 100px;
+            .text{
+                margin-left: 15px;
+            }
+
+        }
+        .pages{
+            width: 960px;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            a{
+                color: #ea6f5a;
+                font-size: 18px;
+                margin-left: 15px;
+            }
+        }
+        .right{
+            width: 100px;
+            a{
+                width: 75px;
+                height: 40px;
+                line-height: 24px;
+                border-radius: 20px;
+                font-size: 15px;
+                color: #fff;
+                background-color: #ea6f5a;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .container{
+        width: 620px;
+        margin: auto;
+        margin-top: 58px;
+        .title{
+            color: black;
+            h1{
+                color: black;
+            }
+            margin-bottom: 20px;
+        }
+        .poster{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+    }
+}
