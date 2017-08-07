@@ -52,7 +52,7 @@ export default Backbone.View.extend({
 
     add:function(){
         let url = $('.add-url').val()
-        let image = $('.add-url').val()
+        let image = $('.add-image').val()
 
         $.post('/admin/banner',{url,image},(data)=>{
             if(data.code == 80000){
