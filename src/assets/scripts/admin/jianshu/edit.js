@@ -60,9 +60,9 @@ export default Backbone.View.extend({
         let title = $('.input.title').val()
         let tag = $('.tag').val()
 
-        let body = this.mde.value()
+        let article = this.mde.value()
 
-        $.post('/article/save',{id,poster,title,body},(data)=>{
+        $.post('/article/save',{id,poster,title,article},(data)=>{
             if(data.code == 80000){
                 alert('保存成功！')
             }
