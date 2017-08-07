@@ -16,13 +16,12 @@ block body
         .container
             .carous
                 .main-baner
-                    img(src="//upload.jianshu.io/admin_banners/web_images/3341/52043e7dc2e5b2a290b340ee2fb744f8324bd557.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540") 
-                
+                    img(src= banners[0] && banners[0].url ||  "//upload.jianshu.io/admin_banners/web_images/3341/52043e7dc2e5b2a290b340ee2fb744f8324bd557.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540") 
                 .side-baner
                     .item
-                        img(src="//upload.jianshu.io/admin_banners/web_images/3348/e263ab95fde969887a393b62df652dd0847445a1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540")
+                        img(src= banners[1] && banners[1].url || "//upload.jianshu.io/admin_banners/web_images/3348/e263ab95fde969887a393b62df652dd0847445a1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540")
                     .item
-                        img(src="//upload.jianshu.io/admin_banners/web_images/3348/e263ab95fde969887a393b62df652dd0847445a1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540")
+                        img(src= banners[2] && banners[2].url || "//upload.jianshu.io/admin_banners/web_images/3348/e263ab95fde969887a393b62df652dd0847445a1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540")
                     
             .main-content
                 .left-wrapper
