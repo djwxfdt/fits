@@ -76,8 +76,15 @@ body{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                img{
-                    height: 100%;;
+                a{
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                }
+                div{
+                    height: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
                 }
             }
             .side-baner{
@@ -87,8 +94,15 @@ body{
                 flex-direction: column;
                 .item{
                     height: 50%;
-                    img{
+                    a{
                         height: 100%;
+                        width: 100%;
+                        display: block;
+                    }
+                    div{
+                        height: 100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
                     }
                 }
             }
