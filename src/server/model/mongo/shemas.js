@@ -11,6 +11,10 @@ const commentSchema = new Schema({
     body:String
 })
 
+const bannerSchema = new Schema({
+    url : String
+})
+
 const blogSchema = new Schema({
     title     : String,
     body      : String,
@@ -137,9 +141,22 @@ categorySchema.statics.updateOne = function(data){
     })
 }
 
+bannerSchema.methods.add = function(){
+    return this.save()
+}
+
+bannerSchema.statics.all = function(){
+    return this.find().exec()
+}
+
+bannerSchema.statics.delete = function(id){
+    return this.remove({_id:id}).exec()
+}
+
 
 module.exports = {
     blogSchema,
     commentSchema,
-    categorySchema
+    categorySchema,
+    bannerSchema
 }

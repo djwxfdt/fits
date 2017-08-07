@@ -1,0 +1,38 @@
+{{> partials/header.hbs}}
+
+<div class="content">
+    {{> partials/navs}}
+    <section class="content-right">
+        <div class="banner-list">
+            <div class="label-title">横幅管理</div>
+            <a href="javascript:;" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加</a>
+            {{#each list}}
+                <div class="item" id= {{this._id}}>
+                    <input type="text" name="" value="{{this.url}}" placeholder="url" class="form-control url">
+                    <a href="javascript:;" class="btn btn-default delete" data-id="{{this._id}}">删除</a>
+                    <img src="{{this.url}}" />
+                </div>
+            {{/each}}
+        </div>
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">添加横幅</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>横幅地址:</p>
+                        <input type="text" name="" value="" class="form-control add-url">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary add">保存</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </section>
+</div>

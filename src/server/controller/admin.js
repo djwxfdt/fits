@@ -2,6 +2,7 @@ const log = require('../log.js')
 const {CODE} = require('../../utils/code.js')
 const user = require('../service/user.js')
 const Post = require('../service/post.js')
+const Banner = require('../service/banner.js')
 const Category = require('../service/category.js')
 const Timer = require('../../utils/timer.js')
 
@@ -87,6 +88,20 @@ module.exports.posttag = (req,res)=>{
     let {id,icon,title} = req.body
     Category.updateOne({id,icon,title}).then(()=>res.send({code:CODE.OK}))
 }
+
+module.exports.postbanner = (req,res)=>{
+    let {url} = req.body
+    Banner.save({url}).then(()=>res.send({code:CODE.OK}))
+}
+
+module.exports.banners = (req,res)=>{
+    Banner.all().then(list=>res.send({code:CODE.OK,list}))
+}
+
+module.exports.postdeletebanner = (req,res)=>{
+    Banner.deleteById(req.body.id).then(()=>res.send({code:CODE.OK}))
+}
+
 
 module.exports.postcategory = (req,res)=>{
     let title = req.body.title

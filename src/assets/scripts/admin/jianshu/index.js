@@ -8,7 +8,7 @@ import ListView from './list.js'
 
 import TagView from './tags.js'
 
-
+import BannerView from './banner.js'
 
 
 const Router = Backbone.Router.extend({
@@ -19,6 +19,7 @@ const Router = Backbone.Router.extend({
         'edit/:id':'edit',
         'setting':'setting',
         'tags':'tags',
+        'banner':'banner',
 
     },
 
@@ -59,6 +60,13 @@ const Router = Backbone.Router.extend({
             this.listView = new ListView()
         }
         this.listView.render()
+    },
+
+    banner:()=>{
+        if(!this.bannerView){
+            this.bannerView = new BannerView()
+        }
+        this.bannerView.render()
     }
 })
 
