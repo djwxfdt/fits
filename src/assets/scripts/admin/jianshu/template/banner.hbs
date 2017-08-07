@@ -8,9 +8,10 @@
             <a href="javascript:;" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加</a>
             {{#each list}}
                 <div class="item" id= {{this._id}}>
-                    <input type="text" name="" value="{{this.url}}" placeholder="url" class="form-control url">
+                    <input type="text" name="" value="{{this.url}}" placeholder="目的地址" class="form-control url">
+                    <input type="text" name="" value="{{this.image}}" placeholder="图片地址" class="form-control image">
                     <a href="javascript:;" class="btn btn-default delete" data-id="{{this._id}}">删除</a>
-                    <img src="{{this.url}}" />
+                    <img src="{{this.image}}" />
                 </div>
             {{/each}}
         </div>
@@ -22,8 +23,9 @@
                         <h4 class="modal-title">添加横幅</h4>
                     </div>
                     <div class="modal-body">
-                        <p>横幅地址:</p>
-                        <input type="text" name="" value="" class="form-control add-url">
+                        <p>目的地址和图片地址:</p>
+                        <input type="text" name="" value="" placeholder="目的地址" class="form-control add-url">
+                        <input type="text" name="" value="" placeholder="图片地址" class="form-control add-image">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>

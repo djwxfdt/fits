@@ -51,8 +51,10 @@ export default Backbone.View.extend({
     },
 
     add:function(){
-        let v = $('.add-url').val()
-        $.post('/admin/banner',{url:v},(data)=>{
+        let url = $('.add-url').val()
+        let image = $('.add-url').val()
+
+        $.post('/admin/banner',{url,image},(data)=>{
             if(data.code == 80000){
                 window.location.reload()
             }

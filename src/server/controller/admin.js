@@ -90,8 +90,7 @@ module.exports.posttag = (req,res)=>{
 }
 
 module.exports.postbanner = (req,res)=>{
-    let {url} = req.body
-    Banner.save({url}).then(()=>res.send({code:CODE.OK}))
+    Banner.save(req.body).then(()=>res.send({code:CODE.OK}))
 }
 
 module.exports.banners = (req,res)=>{

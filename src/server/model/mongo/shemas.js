@@ -12,7 +12,8 @@ const commentSchema = new Schema({
 })
 
 const bannerSchema = new Schema({
-    url : String
+    url : String,
+    image : String
 })
 
 const blogSchema = new Schema({
